@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-99.9.9">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Jialei Duan">
+<title>blastoid·verse - Genotyping of Human Blastocysts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./genotype_stromal_cells.html" rel="next">
+<link href="./summarize_datasets.html" rel="prev">
+<link href="./logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8W87R5EZ9F"></script><script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
+</script><link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="blastoid·verse - Genotyping of Human Blastocysts">
+<meta property="og:site_name" content="blastoid·verse">
+<meta name="twitter:title" content="blastoid·verse">
+<meta name="twitter:creator" content="@jlduan">
+<meta name="twitter:card" content="summary">
+<meta name="citation_title" content="Genotyping of Human Blastocysts">
+<meta name="citation_author" content="Jialei Duan">
+<meta name="citation_publication_date" content="2023-07-21">
+<meta name="citation_cover_date" content="2023-07-21">
+<meta name="citation_year" content="2023">
+<meta name="citation_online_date" content="2023-07-21">
+<meta name="citation_fulltext_html_url" content="https://jlduan.github.io/blastoidverse//genotype_blastocysts.html">
+<meta name="citation_doi" content="10.5281/zenodo.7102744">
+<meta name="citation_language" content="en">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./genotype_blastocysts.html">Genotyping</a></li><li class="breadcrumb-item"><a href="./genotype_blastocysts.html">Blastocyst·verse</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"><strong>blastoid·verse</strong></a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/jlduan" rel="" title="blastoid·verse" class="quarto-navigation-tool px-1" aria-label="blastoid·verse"><i class="bi bi-globe"></i></a>
+    <a href="https://jlduan.github.io/blastoidverse/" rel="" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Preparation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preprocess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarize_datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datasets</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Genotyping</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genotype_blastocysts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Blastocyst·verse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./genotype_stromal_cells.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Endometrial stromal cells</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Integration</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cluster_blastoids_public.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering w/ public datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interpret_blastoids_public.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Characterization</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Implantation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cluster_blastoids_stromal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clustering w/ co-cultured cells</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interpret_blastoids_stromal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreting</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li>
+<a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a>
+  <ul>
+<li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#python-env" id="toc-python-env" class="nav-link" data-scroll-target="#python-env">Python env</a></li>
+  <li>
+<a href="#matrix" id="toc-matrix" class="nav-link" data-scroll-target="#matrix">Matrix</a>
+  <ul class="collapse">
+<li><a href="#snp-matrix" id="toc-snp-matrix" class="nav-link" data-scroll-target="#snp-matrix">SNP matrix</a></li>
+  <li><a href="#expression" id="toc-expression" class="nav-link" data-scroll-target="#expression">Expression</a></li>
+  </ul>
+</li>
+  <li><a href="#embedding" id="toc-embedding" class="nav-link" data-scroll-target="#embedding">Embedding</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#scoring-cells" id="toc-scoring-cells" class="nav-link" data-scroll-target="#scoring-cells">Scoring cells</a>
+  <ul>
+<li>
+<a href="#lw119-lw121" id="toc-lw119-lw121" class="nav-link" data-scroll-target="#lw119-lw121">LW119, LW121</a>
+  <ul class="collapse">
+<li><a href="#blastoid-concensus" id="toc-blastoid-concensus" class="nav-link" data-scroll-target="#blastoid-concensus">Blastoid concensus</a></li>
+  <li><a href="#scoring" id="toc-scoring" class="nav-link" data-scroll-target="#scoring">Scoring</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#lw120-lw122" id="toc-lw120-lw122" class="nav-link" data-scroll-target="#lw120-lw122">LW120, LW122</a>
+  <ul class="collapse">
+<li><a href="#scoring-1" id="toc-scoring-1" class="nav-link" data-scroll-target="#scoring-1">Scoring</a></li>
+  </ul>
+</li>
+  <li><a href="#cut-off-determination" id="toc-cut-off-determination" class="nav-link" data-scroll-target="#cut-off-determination">Cut-off determination</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#genotyping" id="toc-genotyping" class="nav-link" data-scroll-target="#genotyping">Genotyping</a>
+  <ul>
+<li><a href="#clusters" id="toc-clusters" class="nav-link" data-scroll-target="#clusters">Clusters</a></li>
+  <li><a href="#gender" id="toc-gender" class="nav-link" data-scroll-target="#gender">Gender</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering">Clustering</a>
+  <ul>
+<li><a href="#visualization-1" id="toc-visualization-1" class="nav-link" data-scroll-target="#visualization-1">Visualization</a></li>
+  </ul>
+</li>
+  <li><a href="#r-session-info" id="toc-r-session-info" class="nav-link" data-scroll-target="#r-session-info">R session info</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./genotype_blastocysts.html">Genotyping</a></li><li class="breadcrumb-item"><a href="./genotype_blastocysts.html">Blastocyst·verse</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Genotyping of Human Blastocysts</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://github.com/jlduan">Jialei Duan</a> <a href="https://orcid.org/0000-0003-4086-7461" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.utsouthwestern.edu/education/medical-school/departments/green-center">
+            Cecil H. and Ida Green Center for Reproductive Biology Sciences
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Fri Jul 21, 2023 20:40:20+08:00</p>
+    </div>
+  </div>
+  
+    
+    <div>
+    <div class="quarto-title-meta-heading">Doi</div>
+    <div class="quarto-title-meta-contents">
+      <p class="doi">
+        <a href="https://doi.org/10.5281/zenodo.7102744">10.5281/zenodo.7102744</a>
+      </p>
+    </div>
+  </div>
+  </div>
+  
+
+
+</header><p><br></p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2023-07-21 20:39:31 CST"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/timezones.html">Sys.timezone</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Asia/Shanghai"</code></pre>
+</div>
+</div>
+<section id="preparation" class="level2"><h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PROJECT_DIR</span> <span class="op">&lt;-</span> <span class="st">"/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="functions" class="level3"><h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>Load required packages.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">## ── Attaching core tidyverse packages ─────────────────── tidyverse 2.0.0.9000 ──</span></span>
+<span><span class="co">## ✔ dplyr     1.1.2.9000     ✔ readr     2.1.4.9000</span></span>
+<span><span class="co">## ✔ forcats   1.0.0.9000     ✔ stringr   1.5.0.9000</span></span>
+<span><span class="co">## ✔ ggplot2   3.4.2.9000     ✔ tibble    3.2.1.9005</span></span>
+<span><span class="co">## ✔ lubridate 1.9.2.9000     ✔ tidyr     1.3.0.9000</span></span>
+<span><span class="co">## ✔ purrr     1.0.1.9000     </span></span>
+<span><span class="co">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">## ✖ dplyr::filter() masks stats::filter()</span></span>
+<span><span class="co">## ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span><span class="co">## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://Matrix.R-forge.R-project.org">Matrix</a></span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Attaching package: 'Matrix'</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## The following objects are masked from 'package:tidyr':</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">##     expand, pack, unpack</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wch/extrafont">extrafont</a></span><span class="op">)</span></span>
+<span><span class="co">## Registering fonts with R</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/DavisVaughan/furrr">furrr</a></span><span class="op">)</span></span>
+<span><span class="co">## Loading required package: future</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span></span>
+<span>    file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>        <span class="va">SCRIPT_DIR</span>,</span>
+<span>        <span class="st">"utilities.R"</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_mode</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">v</span>, <span class="va">exclude_zero</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">exclude_zero</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">v</span> <span class="op">&lt;-</span> <span class="va">v</span><span class="op">[</span><span class="va">v</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">]</span></span>
+<span>    <span class="op">}</span></span>
+<span></span>
+<span>    <span class="va">uniqv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span>
+<span>    <span class="va">uniqv</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tabulate.html">tabulate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">uniqv</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">normalize</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">add_panel_border</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>        plot.background <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span><span class="op">(</span></span>
+<span>            color <span class="op">=</span> <span class="st">"grey70"</span>, fill <span class="op">=</span> <span class="cn">NA</span>, linewidth <span class="op">=</span> <span class="fl">0.25</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">score_snps</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">m</span>, <span class="va">cells</span>, <span class="va">snp_concensus</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">furrr</span><span class="fu">::</span><span class="fu"><a href="https://furrr.futureverse.org/reference/future_map.html">future_map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">cells</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">selected_cell</span> <span class="op">&lt;-</span> <span class="va">x</span></span>
+<span></span>
+<span>        <span class="va">snps_for_testing</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span></span>
+<span>            <span class="va">m</span></span>
+<span>        <span class="op">)</span><span class="op">[</span><span class="va">m</span><span class="op">[</span>, <span class="va">selected_cell</span><span class="op">]</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">]</span></span>
+<span>        <span class="va">snps_for_testing</span> <span class="op">&lt;-</span> <span class="va">snps_for_testing</span><span class="op">[</span></span>
+<span>            <span class="va">snps_for_testing</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">snp_concensus</span><span class="op">)</span></span>
+<span>        <span class="op">]</span></span>
+<span>        <span class="co"># cat(length(snps_for_testing), "\n")</span></span>
+<span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>            cell <span class="op">=</span> <span class="va">selected_cell</span>,</span>
+<span>            score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span></span>
+<span>                <span class="va">m</span><span class="op">[</span></span>
+<span>                    <span class="va">snps_for_testing</span>,</span>
+<span>                    <span class="va">selected_cell</span></span>
+<span>                <span class="op">]</span> <span class="op">==</span> <span class="va">snp_concensus</span><span class="op">[</span><span class="va">snps_for_testing</span><span class="op">]</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>            num_snps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">snps_for_testing</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>batch <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="va">cell</span>, <span class="st">"_[A-Z]{16}$"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">`%+replace%`</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va">`%+replace%`</span></span>
+<span><span class="va">`%&lt;-%`</span> <span class="op">&lt;-</span> <span class="fu">zeallot</span><span class="fu">::</span><span class="va">`%&lt;-%`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="python-env" class="level3"><h3 class="anchored" data-anchor-id="python-env">Python env</h3>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ad</span> <span class="op">&lt;-</span> <span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/import.html">import</a></span><span class="op">(</span>module <span class="op">=</span> <span class="st">"anndata"</span>, convert <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">ad</span><span class="op">$</span><span class="va">`__version__`</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0.8.0"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">reticulate</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/reticulate/reference/py_config.html">py_config</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>python:         /Users/jialei/.pyenv/shims/python
+libpython:      /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3/lib/libpython3.10.dylib
+pythonhome:     /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3:/Users/jialei/.pyenv/versions/mambaforge-22.9.0-3
+version:        3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:26:08) [Clang 14.0.6 ]
+numpy:          /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3/lib/python3.10/site-packages/numpy
+numpy_version:  1.24.3
+anndata:        /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3/lib/python3.10/site-packages/anndata
+
+NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
+</div>
+</div>
+</section><section id="matrix" class="level3"><h3 class="anchored" data-anchor-id="matrix">Matrix</h3>
+<section id="snp-matrix" class="level4"><h4 class="anchored" data-anchor-id="snp-matrix">SNP matrix</h4>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">VARTRIX_VCF</span> <span class="op">&lt;-</span> <span class="st">"vartrix_LW121"</span></span>
+<span><span class="va">VARTRIX_MATRIX_DIR</span> <span class="op">&lt;-</span> <span class="st">"no-duplicates_umi_mapq10_consensus"</span></span>
+<span></span>
+<span><span class="va">matrix_snp</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LW119"</span>, <span class="st">"LW120"</span>, <span class="st">"LW121"</span>, <span class="st">"LW122"</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">read_snp_matrix</span><span class="op">(</span></span>
+<span>        matrix_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>            <span class="va">PROJECT_DIR</span>, <span class="st">"genotyping"</span>, <span class="va">x</span>,</span>
+<span>            <span class="va">VARTRIX_VCF</span>, <span class="va">VARTRIX_MATRIX_DIR</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">cbind</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">matrix_snp</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 192277   8088</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">VARTRIX_PALETTE</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"vartrix_LW121"</span> <span class="op">=</span> <span class="st">"#BCBD22FF"</span>,</span>
+<span>    <span class="st">"vartrix_1000genomes_AF1e-1"</span> <span class="op">=</span> <span class="st">"#17BECFFF"</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cell_metadata_snp</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html">colSums</a></span><span class="op">(</span><span class="va">matrix_snp</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"cell"</span>, value <span class="op">=</span> <span class="st">"num_umis"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        batch <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>            string <span class="op">=</span> <span class="va">cell</span>,</span>
+<span>            pattern <span class="op">=</span> <span class="st">"_[A-Z]{16}"</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="va">cell_metadata_snp</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  cell                   num_umis batch
+  &lt;chr&gt;                     &lt;dbl&gt; &lt;chr&gt;
+1 LW119_AAACGCTAGGGAGGCA      342 LW119
+2 LW119_AAACGCTCAGCTGGTC      330 LW119
+3 LW119_AAACGCTTCAGTCAGT     1065 LW119
+4 LW119_AAAGAACAGGCTCAAG      988 LW119
+5 LW119_AAAGAACCAGCTGAGA      756 LW119
+6 LW119_AAAGAACCATTAAAGG      877 LW119</code></pre>
+</div>
+</div>
+</section><section id="expression" class="level4"><h4 class="anchored" data-anchor-id="expression">Expression</h4>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adata_files</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LW119"</span>, <span class="st">"LW120"</span>, <span class="st">"LW121"</span>, <span class="st">"LW122"</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>        <span class="va">PROJECT_DIR</span>,</span>
+<span>        <span class="st">"raw"</span>,</span>
+<span>        <span class="va">x</span>,</span>
+<span>        <span class="st">"matrix"</span>,</span>
+<span>        <span class="st">"adata.h5ad"</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_lgl</a></span><span class="op">(</span><span class="va">adata_files</span>, <span class="va">file.exists</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BACKED</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="va">matrix_readcount_use</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">adata_files</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>    <span class="va">ad</span><span class="op">$</span><span class="fu">read_h5ad</span><span class="op">(</span></span>
+<span>        filename <span class="op">=</span> <span class="va">x</span>, backed <span class="op">=</span> <span class="va">BACKED</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">extract_matrix_from_adata</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">cbind</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/raw/LW119/matrix/adata.h5ad 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/raw/LW120/matrix/adata.h5ad 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/raw/LW121/matrix/adata.h5ad 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/raw/LW122/matrix/adata.h5ad </code></pre>
+</div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">matrix_readcount_use</span> <span class="op">&lt;-</span> <span class="va">matrix_readcount_use</span><span class="op">[</span></span>
+<span>    , <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">matrix_readcount_use</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">]</span></span>
+<span><span class="va">matrix_readcount_use</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 33538  8831</code></pre>
+</div>
+</div>
+</section></section><section id="embedding" class="level3"><h3 class="anchored" data-anchor-id="embedding">Embedding</h3>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">embedding_blastocyst</span> <span class="op">&lt;-</span> <span class="fu">vroom</span><span class="fu">::</span><span class="fu"><a href="https://vroom.r-lib.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>    file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>        <span class="va">PROJECT_DIR</span>, <span class="st">"clustering"</span>,</span>
+<span>        <span class="st">"LW119_blastocyst_LW120_LW122/exploring"</span>,</span>
+<span>        <span class="st">"Scanpy_Harmony"</span>,</span>
+<span>        <span class="st">"embedding_ncomponents14_seed20210719.csv.gz"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    show_col_types <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="scoring-cells" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="scoring-cells">Scoring cells</h2>
+<section id="lw119-lw121" class="level3"><h3 class="anchored" data-anchor-id="lw119-lw121">LW119, LW121</h3>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cells_LW119</span> <span class="op">&lt;-</span> <span class="va">cell_metadata_snp</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">batch</span> <span class="op">==</span> <span class="st">"LW119"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">cell</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cells_LW121</span> <span class="op">&lt;-</span> <span class="va">cell_metadata_snp</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">batch</span> <span class="op">==</span> <span class="st">"LW121"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">cell</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="blastoid-concensus" class="level4"><h4 class="anchored" data-anchor-id="blastoid-concensus">Blastoid concensus</h4>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">snp_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/split.html">split</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">matrix_snp</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">matrix_snp</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">snp_concensus_LW121</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">snp_group</span><span class="op">)</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span></span>
+<span>        <span class="va">matrix_snp</span><span class="op">[</span><span class="va">snp_group</span><span class="op">[[</span><span class="va">x</span><span class="op">]</span><span class="op">]</span>, <span class="va">cells_LW121</span><span class="op">]</span>,</span>
+<span>        MARGIN <span class="op">=</span> <span class="fl">1</span>, <span class="va">get_mode</span>, <span class="cn">TRUE</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">snp_concensus_LW121</span> <span class="op">&lt;-</span> <span class="va">snp_concensus_LW121</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">snp_concensus_LW121</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">snp_concensus_LW121</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"type"</span>, value <span class="op">=</span> <span class="st">"num_cells"</span><span class="op">)</span></span>
+<span><span class="co">## # A tibble: 3 × 2</span></span>
+<span><span class="co">##   type  num_cells  </span></span>
+<span><span class="co">##   &lt;chr&gt; &lt;table[1d]&gt;</span></span>
+<span><span class="co">## 1 1        587     </span></span>
+<span><span class="co">## 2 2     191193     </span></span>
+<span><span class="co">## 3 3          8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="scoring" class="level4"><h4 class="anchored" data-anchor-id="scoring">Scoring</h4>
+<div class="cell" data-hash="genotype_blastocysts_cache/html/unnamed-chunk-24_b6f37a9d3b1a64e4b549bdea573193e9">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">snp_scores_LW119_LW121</span> <span class="op">&lt;-</span> <span class="fu">score_snps</span><span class="op">(</span></span>
+<span>    m <span class="op">=</span> <span class="va">matrix_snp</span>,</span>
+<span>    cells <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">cells_LW119</span>, <span class="va">cells_LW121</span><span class="op">)</span>,</span>
+<span>    snp_concensus <span class="op">=</span> <span class="va">snp_concensus_LW121</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">file_name</span> <span class="op">&lt;-</span> <span class="st">"snp_scores_LW119_LW121.csv"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">file_name</span>, <span class="st">"\n"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>snp_scores_LW119_LW121.csv </code></pre>
+</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="va">file_name</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">vroom</span><span class="fu">::</span><span class="fu"><a href="https://vroom.r-lib.org/reference/vroom_write.html">vroom_write</a></span><span class="op">(</span></span>
+<span>        x <span class="op">=</span> <span class="va">snp_scores_LW119_LW121</span>,</span>
+<span>        file <span class="op">=</span> <span class="va">file_name</span>,</span>
+<span>        delim <span class="op">=</span> <span class="st">","</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">snp_scores_LW119_LW121</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    cell     score num_snps batch
+1 LW119_AAACGCTAGGGAGGCA 0.9378531      177 LW119
+2 LW119_AAACGCTCAGCTGGTC 0.9818182      165 LW119
+3 LW119_AAACGCTTCAGTCAGT 0.9794776      536 LW119
+4 LW119_AAAGAACAGGCTCAAG 0.9798387      496 LW119
+5 LW119_AAAGAACCAGCTGAGA 0.9634465      383 LW119
+6 LW119_AAAGAACCATTAAAGG 0.9707207      444 LW119</code></pre>
+</div>
+</div>
+</section></section><section id="lw120-lw122" class="level3"><h3 class="anchored" data-anchor-id="lw120-lw122">LW120, LW122</h3>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cells_LW120_LW122</span> <span class="op">&lt;-</span> <span class="va">cell_metadata_snp</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">batch</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LW120"</span>, <span class="st">"LW122"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">cell</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="scoring-1" class="level4"><h4 class="anchored" data-anchor-id="scoring-1">Scoring</h4>
+<div class="cell" data-hash="genotype_blastocysts_cache/html/unnamed-chunk-28_8b308c8f924be614076d0732bf8e7abd">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">snp_scores_LW120_LW122</span> <span class="op">&lt;-</span> <span class="fu">score_snps</span><span class="op">(</span></span>
+<span>    m <span class="op">=</span> <span class="va">matrix_snp</span>,</span>
+<span>    cells <span class="op">=</span> <span class="va">cells_LW120_LW122</span>,</span>
+<span>    snp_concensus <span class="op">=</span> <span class="va">snp_concensus_LW121</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">snp_scores_LW120_LW122</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    cell     score num_snps batch
+1 LW120_AAACGCTAGGTCATAA 0.7445443     1558 LW120
+2 LW120_AAACGCTCAACAACAA 0.7852349      149 LW120
+3 LW120_AAAGGATAGTATGAAC 0.7414661     1787 LW120
+4 LW120_AACAACCGTGTATTGC 0.7427184      206 LW120
+5 LW120_AACAGGGGTTTGTTGG 0.7166338     1521 LW120
+6 LW120_AACAGGGTCAGACTGT 0.6964038     6479 LW120</code></pre>
+</div>
+</div>
+</section></section><section id="cut-off-determination" class="level3"><h3 class="anchored" data-anchor-id="cut-off-determination">Cut-off determination</h3>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">MINIMAL_SNPS</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
+<span><span class="va">BINWIDTH</span> <span class="op">&lt;-</span> <span class="fl">0.01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cutoff</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.html">system</a></span><span class="op">(</span></span>
+<span>    <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span>        <span class="st">"{file.path(PROJECT_DIR, \"genotyping\")}/call_gmm_2022-06-05.py "</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>            <span class="st">"snp_scores_LW119_LW121.csv"</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    intern <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>        pattern <span class="op">=</span> <span class="st">"\\["</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>        pattern <span class="op">=</span> <span class="st">"\\]"</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span></span>
+<span>        pattern <span class="op">=</span> <span class="st">" "</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">snp_score_cutoff</span> <span class="op">&lt;-</span> <span class="va">cutoff</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span>
+<span><span class="va">snp_score_cutoff</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9236111</code></pre>
+</div>
+</div>
+</section><section id="visualization" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">cells_LW119_blastocyst</span> <span class="op">&lt;-</span> <span class="va">snp_scores</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
+<span>            <span class="va">batch</span> <span class="op">==</span> <span class="st">"LW119"</span>,</span>
+<span>            <span class="va">num_snps</span> <span class="op">&gt;=</span> <span class="fl">20</span>,</span>
+<span>            <span class="va">score</span> <span class="op">&lt;=</span> <span class="va">snp_score_cutoff</span></span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">cell</span><span class="op">)</span></span>
+<span></span>
+<span>    <span class="va">num_cells_LW119_blastocyst</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">cells_LW119_blastocyst</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hist_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span></span>
+<span>    <span class="va">snp_scores_LW119_LW121</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
+<span>            <span class="va">num_snps</span> <span class="op">&gt;=</span> <span class="va">MINIMAL_SNPS</span>,</span>
+<span>            <span class="va">batch</span> <span class="op">==</span> <span class="st">"LW119"</span>,</span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">score</span><span class="op">)</span>,</span>
+<span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="va">BINWIDTH</span><span class="op">)</span>,</span>
+<span>    plot <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ann_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    num_cells <span class="op">=</span> <span class="va">snp_scores_LW119_LW121</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
+<span>            <span class="va">num_snps</span> <span class="op">&gt;=</span> <span class="va">MINIMAL_SNPS</span>,</span>
+<span>            <span class="va">batch</span> <span class="op">==</span> <span class="st">"LW119"</span>,</span>
+<span>            <span class="va">score</span> <span class="op">&lt;=</span> <span class="va">snp_score_cutoff</span></span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    batch <span class="op">=</span> <span class="st">"LW119"</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell page-columns page-full" data-layout-align="center">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">snp_scores_LW119_LW121</span>, <span class="va">snp_scores_LW120_LW122</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        batch <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>            <span class="va">batch</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LW120"</span>, <span class="st">"LW122"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"LW120 + LW122"</span>,</span>
+<span>            <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">batch</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span></span>
+<span>        <span class="va">num_snps</span> <span class="op">&gt;=</span> <span class="va">MINIMAL_SNPS</span>,</span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        color <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>            <span class="op">(</span></span>
+<span>                <span class="va">score</span> <span class="op">&lt;=</span> <span class="va">snp_score_cutoff</span> <span class="op">&amp;</span> <span class="va">batch</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"LW119"</span><span class="op">)</span></span>
+<span>            <span class="op">)</span> <span class="op">~</span> <span class="va">VARTRIX_PALETTE</span><span class="op">[</span><span class="va">VARTRIX_VCF</span><span class="op">]</span>,</span>
+<span>            <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"grey35"</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>        <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>            x <span class="op">=</span> <span class="va">score</span>, fill <span class="op">=</span> <span class="va">color</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span></span>
+<span>        binwidth <span class="op">=</span> <span class="va">BINWIDTH</span>,</span>
+<span>        boundary <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        closed <span class="op">=</span> <span class="st">"left"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"SNP score"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Number of cells"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">scale_fill_identity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span></span>
+<span>        <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">batch</span><span class="op">)</span>,</span>
+<span>        scales <span class="op">=</span> <span class="st">"free_y"</span>,</span>
+<span>        labeller <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/as_labeller.html">as_labeller</a></span><span class="op">(</span></span>
+<span>            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>                <span class="st">"LW119"</span> <span class="op">=</span> <span class="st">"Blastocyst + Blastoid (LW119)"</span>,</span>
+<span>                <span class="st">"LW120 + LW122"</span> <span class="op">=</span> <span class="st">"Blastocyst (LW120, LW122)"</span>,</span>
+<span>                <span class="st">"LW121"</span> <span class="op">=</span> <span class="st">"Blastoid (LW121)"</span></span>
+<span>            <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">6</span>, base_family <span class="op">=</span> <span class="st">"Arial"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>        legend.background <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.key <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        <span class="co">#</span></span>
+<span>        <span class="co"># panel.background = ggplot2::element_blank(),</span></span>
+<span>        <span class="co">#</span></span>
+<span>        plot.background <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        strip.text <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span></span>
+<span>            family <span class="op">=</span> <span class="st">"Arial"</span>, size <span class="op">=</span> <span class="fl">6</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span></span>
+<span>        xintercept <span class="op">=</span> <span class="va">snp_score_cutoff</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"salmon"</span>,</span>
+<span>        linewidth <span class="op">=</span> <span class="fl">0.25</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span></span>
+<span>        data <span class="op">=</span> <span class="va">ann_text</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>            x <span class="op">=</span> <span class="va">snp_score_cutoff</span>,</span>
+<span>            y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">hist_out</span><span class="op">$</span><span class="va">counts</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>        <span class="op">)</span>,</span>
+<span>        label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Num of cells: {ann_text$num_cells}  "</span><span class="op">)</span>,</span>
+<span>        size <span class="op">=</span> <span class="fl">6</span> <span class="op">/</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/graphical-units.html">.pt</a></span>,</span>
+<span>        family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>        hjust <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>        vjust <span class="op">=</span> <span class="fl">1</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span></span>
+<span>        xintercept <span class="op">=</span> <span class="va">snp_score_cutoff</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"salmon"</span>,</span>
+<span>        linewidth <span class="op">=</span> <span class="fl">0.25</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full"><p class="page-columns page-full"><img src="genotype_blastocysts_files/figure-html/unnamed-chunk-34-1.svg" style="width:90.0%;height:90.0%" class="figure-img column-page"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="genotyping" class="level2"><h2 class="anchored" data-anchor-id="genotyping">Genotyping</h2>
+<section id="clusters" class="level3"><h3 class="anchored" data-anchor-id="clusters">Clusters</h3>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">SOUPORCELL_RESULT_DIR</span> <span class="op">&lt;-</span> <span class="st">"result_vartrix_LW121"</span></span>
+<span></span>
+<span><span class="va">souporcell_clusters</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>        <span class="va">PROJECT_DIR</span>, <span class="st">"genotyping"</span>, <span class="st">"souporcell"</span>,</span>
+<span>        <span class="va">SOUPORCELL_RESULT_DIR</span>, <span class="st">"raw"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    regexp <span class="op">=</span> <span class="st">"troublet_.+tsv$"</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>            num_clusters <span class="op">=</span> <span class="va">x</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>                    pattern <span class="op">=</span> <span class="st">"clusters_souporcell_troublet_"</span></span>
+<span>                <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>                    pattern <span class="op">=</span> <span class="st">".tsv"</span></span>
+<span>                <span class="op">)</span>,</span>
+<span>            log_prob_singleton <span class="op">=</span> <span class="fu">vroom</span><span class="fu">::</span><span class="fu"><a href="https://vroom.r-lib.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>                file <span class="op">=</span> <span class="va">x</span>, show_col_types <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>            <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">log_prob_singleton</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        num_clusters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">num_clusters</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_10.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_11.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_12.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_13.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_14.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_15.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_16.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_17.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_18.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_19.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_20.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_24.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_25.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_5.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_50.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_6.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_8.tsv 
+/Users/jialei/Dropbox/Data/Projects/UTSW/Peri-implantation/genotyping/souporcell/result_vartrix_LW121/raw/clusters_souporcell_troublet_9.tsv </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">souporcell_clusters_longer</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
+<span>    <span class="va">souporcell_clusters</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>            <span class="va">num_clusters</span>,</span>
+<span>            y <span class="op">=</span> <span class="va">log_prob_singleton</span></span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"y_log_prob_singleton"</span><span class="op">)</span>,</span>
+<span>    <span class="co">#</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>        num_clusters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span></span>
+<span>            <span class="va">souporcell_clusters</span><span class="op">$</span><span class="va">num_clusters</span></span>
+<span>        <span class="op">)</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">souporcell_clusters</span><span class="op">$</span><span class="va">num_clusters</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            y_pred <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/approxfun.html">approxfun</a></span><span class="op">(</span></span>
+<span>                x <span class="op">=</span> <span class="va">souporcell_clusters</span><span class="op">$</span><span class="va">num_clusters</span>,</span>
+<span>                y <span class="op">=</span> <span class="va">souporcell_clusters</span><span class="op">$</span><span class="va">log_prob_singleton</span>,</span>
+<span>                method <span class="op">=</span> <span class="st">"linear"</span>,</span>
+<span>                n <span class="op">=</span> <span class="fl">50</span></span>
+<span>            <span class="op">)</span><span class="op">(</span><span class="va">num_clusters</span><span class="op">)</span>,</span>
+<span>            num_clusters_normalized <span class="op">=</span> <span class="fu">normalize</span><span class="op">(</span><span class="va">num_clusters</span><span class="op">)</span>,</span>
+<span>            y_pred_normalized <span class="op">=</span> <span class="fu">normalize</span><span class="op">(</span><span class="va">y_pred</span><span class="op">)</span>,</span>
+<span>            y_difference <span class="op">=</span> <span class="va">y_pred_normalized</span> <span class="op">-</span> <span class="va">num_clusters_normalized</span>,</span>
+<span>            y_difference <span class="op">=</span> <span class="va">y_difference</span> <span class="op">*</span> <span class="op">(</span></span>
+<span>                <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">y_pred</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">y_pred</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">y_pred</span><span class="op">)</span></span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">num_clusters</span>, <span class="va">y_pred</span>, <span class="va">y_difference</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y_pred</span>, <span class="va">y_difference</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
+<span>            <span class="va">num_clusters</span>,</span>
+<span>            type <span class="op">=</span> <span class="va">name</span>,</span>
+<span>            y <span class="op">=</span> <span class="va">value</span></span>
+<span>        <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">!=</span> <span class="st">"y_pred"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">type</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">idx_num_clusters</span> <span class="op">&lt;-</span> <span class="va">souporcell_clusters_longer</span><span class="op">[</span></span>
+<span>    <span class="va">souporcell_clusters_longer</span><span class="op">$</span><span class="va">type</span> <span class="op">!=</span> <span class="st">"y_log_prob_singleton"</span>,</span>
+<span>    <span class="st">"num_clusters"</span>,</span>
+<span>    drop <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">]</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span></span>
+<span>    <span class="va">souporcell_clusters_longer</span><span class="op">[</span></span>
+<span>        <span class="va">souporcell_clusters_longer</span><span class="op">$</span><span class="va">type</span> <span class="op">!=</span> <span class="st">"y_log_prob_singleton"</span>,</span>
+<span>        <span class="st">"y"</span>,</span>
+<span>        drop <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>    <span class="op">]</span></span>
+<span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_souporcell_log_prob</span> <span class="op">&lt;-</span> <span class="va">souporcell_clusters_longer</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"y_log_prob_singleton"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>            x <span class="op">=</span> <span class="va">num_clusters</span>,</span>
+<span>            y <span class="op">=</span> <span class="va">y</span>,</span>
+<span>            color <span class="op">=</span> <span class="va">type</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span></span>
+<span>        data <span class="op">=</span> <span class="va">souporcell_clusters_longer</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">!=</span> <span class="st">"y_log_prob_singleton"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span></span>
+<span>        xintercept <span class="op">=</span> <span class="va">idx_num_clusters</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"steelblue"</span>, linewidth <span class="op">=</span> <span class="fl">0.3</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
+<span>        geom <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>        x <span class="op">=</span> <span class="va">idx_num_clusters</span>,</span>
+<span>        y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">souporcell_clusters_longer</span><span class="op">$</span><span class="va">y</span><span class="op">)</span>,</span>
+<span>        label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span>            <span class="st">" Number of genotype clusters: {idx_num_clusters}"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>        size <span class="op">=</span> <span class="fl">5</span> <span class="op">/</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/graphical-units.html">.pt</a></span>,</span>
+<span>        hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        vjust <span class="op">=</span> <span class="fl">0</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span></span>
+<span>        name <span class="op">=</span> <span class="st">"Number of genotype clusters"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span></span>
+<span>        name <span class="op">=</span> <span class="st">"Total log likehood"</span>,</span>
+<span>        labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/scientific_format.html">scientific</a></span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span></span>
+<span>        name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>        values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#da3490"</span>, <span class="st">"#9089fa"</span><span class="op">)</span>,</span>
+<span>        breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"y_log_prob_singleton"</span>, <span class="st">"y_difference"</span><span class="op">)</span>,</span>
+<span>        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>            <span class="st">"Souporcell; total log likehood"</span>,</span>
+<span>            <span class="st">"Normalized difference curve"</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">6</span>, base_family <span class="op">=</span> <span class="st">"Arial"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>        legend.background <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span></span>
+<span>            t <span class="op">=</span> <span class="fl">0</span>, r <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">0</span>, l <span class="op">=</span> <span class="fl">0</span>, unit <span class="op">=</span> <span class="st">"mm"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        legend.spacing.y <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>        legend.key <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        legend.key.size <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">3</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>        legend.text <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span></span>
+<span>            family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>            size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>            margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span></span>
+<span>                t <span class="op">=</span> <span class="fl">0</span>, r <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">0</span>, l <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, unit <span class="op">=</span> <span class="st">"mm"</span></span>
+<span>            <span class="op">)</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.9</span><span class="op">)</span>,</span>
+<span>        legend.justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>        plot.title <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span></span>
+<span>            family <span class="op">=</span> <span class="st">"Arial"</span>, size <span class="op">=</span> <span class="fl">6</span>, hjust <span class="op">=</span> <span class="fl">0.5</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        plot.background <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="gender" class="level3"><h3 class="anchored" data-anchor-id="gender">Gender</h3>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">feature_symbols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span></span>
+<span>    object <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">matrix_readcount_use</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>            pattern <span class="op">=</span> <span class="st">".+_"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>    nm <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">matrix_readcount_use</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>            pattern <span class="op">=</span> <span class="st">"_.+$"</span></span>
+<span>        <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">souporcell_result</span> <span class="op">&lt;-</span> <span class="fu">vroom</span><span class="fu">::</span><span class="fu"><a href="https://vroom.r-lib.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>    file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>        <span class="va">PROJECT_DIR</span>, <span class="st">"genotyping"</span>, <span class="st">"souporcell"</span>,</span>
+<span>        <span class="va">SOUPORCELL_RESULT_DIR</span>, <span class="st">"raw"</span>,</span>
+<span>        <span class="st">"clusters_souporcell_troublet_15.tsv"</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    show_col_types <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>cell <span class="op">=</span> <span class="va">barcode</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">feature_symbols</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ENSG00000243485 ENSG00000237613 ENSG00000186092 ENSG00000238009 ENSG00000239945 
+  "MIR1302-2HG"       "FAM138A"         "OR4F5"    "AL627309.1"    "AL627309.3" 
+ENSG00000239906 
+   "AL627309.2" </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">features_XY</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X"</span>, <span class="st">"Y"</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">vroom</span><span class="fu">::</span><span class="fu"><a href="https://vroom.r-lib.org/reference/vroom.html">vroom</a></span><span class="op">(</span></span>
+<span>        file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span></span>
+<span>            <span class="va">PROJECT_DIR</span>,</span>
+<span>            <span class="st">"misc/annotations/refdata-cellranger-GRCh38-3.0.0"</span>,</span>
+<span>            <span class="st">"genes.gtf.gz"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        delim <span class="op">=</span> <span class="st">"\t"</span>,</span>
+<span>        col_names <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>        comment <span class="op">=</span> <span class="st">"#"</span>,</span>
+<span>        show_col_types <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">X1</span> <span class="op">==</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">X9</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            feature <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span></span>
+<span>                string <span class="op">=</span> <span class="va">X9</span>, pattern <span class="op">=</span> <span class="st">";.+$"</span></span>
+<span>            <span class="op">)</span></span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">feature</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            feature <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span></span>
+<span>                string <span class="op">=</span> <span class="va">feature</span>,</span>
+<span>                pattern <span class="op">=</span> <span class="st">"\""</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>            feature <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove_all</a></span><span class="op">(</span></span>
+<span>                string <span class="op">=</span> <span class="va">feature</span>,</span>
+<span>                pattern <span class="op">=</span> <span class="st">"gene_id "</span></span>
+<span>            <span class="op">)</span></span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">feature</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="op">{</span></span>
+<span>            \<span class="op">(</span><span class="va">x</span><span class="op">)</span>            <span class="op">{</span></span>
+<span>                <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">feature_symbols</span><span class="op">[</span><span class="va">x</span><span class="op">]</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span>
+<span>            <span class="op">}</span></span>
+<span>        <span class="op">}</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">features_XY</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X"</span>, <span class="st">"Y"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_int</a></span><span class="op">(</span><span class="va">features_XY</span>, <span class="va">length</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   X    Y 
+1078  100 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Y_expression_cutoff</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span></span>
+<span><span class="va">p_histogram_y</span> <span class="op">&lt;-</span> <span class="fu">calc_cpm</span><span class="op">(</span></span>
+<span>    <span class="va">matrix_readcount_use</span><span class="op">[</span>, <span class="va">souporcell_result</span><span class="op">$</span><span class="va">cell</span><span class="op">]</span></span>
+<span><span class="op">)</span><span class="op">[</span><span class="va">features_XY</span><span class="op">$</span><span class="va">Y</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html">colSums</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"cell"</span>, value <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>        gender <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>            <span class="va">value</span> <span class="op">&gt;=</span> <span class="va">Y_expression_cutoff</span> <span class="op">~</span> <span class="st">"male"</span>,</span>
+<span>            <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"female"</span></span>
+<span>        <span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="op">{</span></span>
+<span>        \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>            <span class="va">num_cells</span> <span class="op">&lt;-</span> <span class="fu">calc_cpm</span><span class="op">(</span></span>
+<span>                <span class="va">matrix_readcount_use</span><span class="op">[</span>, <span class="va">souporcell_result</span><span class="op">$</span><span class="va">cell</span><span class="op">]</span></span>
+<span>            <span class="op">)</span><span class="op">[</span><span class="va">features_XY</span><span class="op">$</span><span class="va">Y</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html">colSums</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"cell"</span>, value <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">value</span> <span class="op">&gt;=</span> <span class="va">Y_expression_cutoff</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>            <span class="va">x</span> <span class="op">|&gt;</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>                    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value</span>, fill <span class="op">=</span> <span class="va">gender</span><span class="op">)</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span></span>
+<span>                    binwidth <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>                    boundary <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                    closed <span class="op">=</span> <span class="st">"left"</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span></span>
+<span>                    name <span class="op">=</span> <span class="st">"Sum expression of Y genes, CPM"</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span></span>
+<span>                    name <span class="op">=</span> <span class="st">"Number of cells"</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span></span>
+<span>                    name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>                    values <span class="op">=</span> <span class="fu">paletteer</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span><span class="op">(</span></span>
+<span>                        n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                        palette <span class="op">=</span> <span class="st">"colorblindr::OkabeIto"</span></span>
+<span>                    <span class="op">)</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span></span>
+<span>                    xintercept <span class="op">=</span> <span class="fl">100</span>, color <span class="op">=</span> <span class="st">"steelblue"</span>, linewidth <span class="op">=</span> <span class="fl">0.3</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
+<span>                    geom <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>                    x <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>                    y <span class="op">=</span> <span class="fl">400</span>,</span>
+<span>                    label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span></span>
+<span>                        <span class="st">" Number of male cells: {num_cells}"</span></span>
+<span>                    <span class="op">)</span>,</span>
+<span>                    family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>                    color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>                    size <span class="op">=</span> <span class="fl">5</span> <span class="op">/</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/graphical-units.html">.pt</a></span>,</span>
+<span>                    hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>                    vjust <span class="op">=</span> <span class="fl">0</span></span>
+<span>                <span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_grey</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">6</span>, base_family <span class="op">=</span> <span class="st">"Arial"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>                <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>                    legend.background <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                    legend.margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span></span>
+<span>                        t <span class="op">=</span> <span class="fl">0</span>, r <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">0</span>, l <span class="op">=</span> <span class="fl">0</span>, unit <span class="op">=</span> <span class="st">"mm"</span></span>
+<span>                    <span class="op">)</span>,</span>
+<span>                    legend.spacing.y <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">0</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>                    legend.key <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>                    legend.key.size <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">3</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>                    legend.text <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span></span>
+<span>                        family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>                        size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>                        margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span></span>
+<span>                            t <span class="op">=</span> <span class="fl">0</span>, r <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">0</span>, l <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, unit <span class="op">=</span> <span class="st">"mm"</span></span>
+<span>                        <span class="op">)</span></span>
+<span>                    <span class="op">)</span>,</span>
+<span>                    legend.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">0.9</span><span class="op">)</span>,</span>
+<span>                    legend.justification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>                    plot.background <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>                <span class="op">)</span></span>
+<span>        <span class="op">}</span></span>
+<span>    <span class="op">}</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    <span class="va">p_souporcell_log_prob</span>,</span>
+<span>    <span class="va">p_histogram_y</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">`+`</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html">plot_layout</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation</a></span><span class="op">(</span></span>
+<span>        theme <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.margin <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="genotype_blastocysts_files/figure-html/unnamed-chunk-47-1.svg" style="width:80.0%;height:80.0%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="clustering" class="level2"><h2 class="anchored" data-anchor-id="clustering">Clustering</h2>
+<section id="visualization-1" class="level3"><h3 class="anchored" data-anchor-id="visualization-1">Visualization</h3>
+<div class="cell">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">RASTERISED</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x_label</span>, <span class="va">y_label</span><span class="op">)</span> <span class="op"><a href="https://future.futureverse.org/reference/future.html">%&lt;-%</a></span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">map2</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x.range"</span>, <span class="st">"y.range"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.035</span>, <span class="fl">0.065</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot_build.html">ggplot_build</a></span><span class="op">(</span></span>
+<span>            <span class="va">p_embedding_leiden</span></span>
+<span>        <span class="op">)</span><span class="op">$</span><span class="va">layout</span><span class="op">$</span><span class="va">panel_params</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      3.5%       6.5% 
+ 0.4392287 -0.5908886 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># batch</span></span>
+<span><span class="va">p_embedding_batch</span> <span class="op">&lt;-</span> <span class="fu">plot_embedding</span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">embedding_blastocyst</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x_column</span>, <span class="va">y_column</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">embedding_blastocyst</span><span class="op">$</span><span class="va">batch</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    color_labels <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    color_legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    sort_values <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    shuffle_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    rasterise <span class="op">=</span> <span class="va">RASTERISED</span>,</span>
+<span>    geom_point_size <span class="op">=</span> <span class="va">GEOM_POINT_SIZE</span> <span class="op">*</span> <span class="fl">1.5</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_customized_embedding</span><span class="op">(</span>void <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
+<span>        geom <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>        x <span class="op">=</span> <span class="va">x_label</span>,</span>
+<span>        y <span class="op">=</span> <span class="va">y_label</span>,</span>
+<span>        label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Blastocyst; This study\nBatch"</span><span class="op">)</span>,</span>
+<span>        family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>        size <span class="op">=</span> <span class="fl">5</span> <span class="op">/</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/graphical-units.html">.pt</a></span>,</span>
+<span>        hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        vjust <span class="op">=</span> <span class="fl">0</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span></span>
+<span>        values <span class="op">=</span> <span class="fu">RColorBrewer</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">3</span>, name <span class="op">=</span> <span class="st">"Set2"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># genotype assignment</span></span>
+<span><span class="va">values</span> <span class="op">&lt;-</span> <span class="va">embedding_blastocyst</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span></span>
+<span>        <span class="va">souporcell_result</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">status</span> <span class="op">==</span> <span class="st">"singlet"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cell</span>, <span class="va">assignment</span><span class="op">)</span>,</span>
+<span>        by <span class="op">=</span> <span class="st">"cell"</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">assignment</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p_embedding_assignment</span> <span class="op">&lt;-</span> <span class="fu">plot_embedding</span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">embedding_blastocyst</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x_column</span>, <span class="va">y_column</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">values</span>,</span>
+<span>    color_legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    sort_values <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    shuffle_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    rasterise <span class="op">=</span> <span class="va">RASTERISED</span>,</span>
+<span>    geom_point_size <span class="op">=</span> <span class="va">GEOM_POINT_SIZE</span> <span class="op">*</span> <span class="fl">1.5</span>,</span>
+<span>    geom_point_legend_ncol <span class="op">=</span> <span class="fl">4</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_customized_embedding</span><span class="op">(</span>void <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span></span>
+<span>        values <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/hue_pal.html">hue_pal</a></span><span class="op">(</span>l <span class="op">=</span> <span class="fl">75</span>, c <span class="op">=</span> <span class="fl">150</span><span class="op">)</span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nlevels.html">nlevels</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
+<span>        na.value <span class="op">=</span> <span class="st">"grey70"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
+<span>        geom <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>        x <span class="op">=</span> <span class="va">x_label</span>,</span>
+<span>        y <span class="op">=</span> <span class="va">y_label</span>,</span>
+<span>        label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Blastocyst; This study\nGenotype"</span><span class="op">)</span>,</span>
+<span>        family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>        size <span class="op">=</span> <span class="fl">5</span> <span class="op">/</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/graphical-units.html">.pt</a></span>,</span>
+<span>        hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        vjust <span class="op">=</span> <span class="fl">0</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># gender</span></span>
+<span><span class="va">values</span> <span class="op">&lt;-</span> <span class="va">embedding_blastocyst</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span></span>
+<span>        <span class="fu">calc_cpm</span><span class="op">(</span></span>
+<span>            <span class="va">matrix_readcount_use</span><span class="op">[</span>, <span class="va">souporcell_result</span><span class="op">$</span><span class="va">cell</span><span class="op">]</span></span>
+<span>        <span class="op">)</span><span class="op">[</span><span class="va">features_XY</span><span class="op">$</span><span class="va">Y</span>, <span class="op">]</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html">colSums</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"cell"</span>, value <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>                sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">value</span> <span class="op">&gt;=</span> <span class="fl">100</span>, <span class="st">"male"</span>, <span class="st">"female"</span><span class="op">)</span></span>
+<span>            <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>            <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span></span>
+<span>                <span class="va">souporcell_result</span> <span class="op">|&gt;</span></span>
+<span>                    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">cell</span>, <span class="va">status</span>, <span class="va">assignment</span><span class="op">)</span>,</span>
+<span>                by <span class="op">=</span> <span class="st">"cell"</span></span>
+<span>            <span class="op">)</span>,</span>
+<span>        by <span class="op">=</span> <span class="st">"cell"</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p_embedding_gender</span> <span class="op">&lt;-</span> <span class="fu">plot_embedding</span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">embedding_blastocyst</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x_column</span>, <span class="va">y_column</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">values</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    color_legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    sort_values <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    shuffle_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    rasterise <span class="op">=</span> <span class="va">RASTERISED</span>,</span>
+<span>    geom_point_size <span class="op">=</span> <span class="va">GEOM_POINT_SIZE</span> <span class="op">*</span> <span class="fl">1.5</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_customized_embedding</span><span class="op">(</span>void <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span></span>
+<span>        values <span class="op">=</span> <span class="fu">paletteer</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span><span class="op">(</span></span>
+<span>            n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nlevels.html">nlevels</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"colorblindr::OkabeIto"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">values</span><span class="op">)</span>, <span class="st">"Other"</span><span class="op">)</span>,</span>
+<span>        na.value <span class="op">=</span> <span class="st">"grey70"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
+<span>        geom <span class="op">=</span> <span class="st">"text"</span>,</span>
+<span>        x <span class="op">=</span> <span class="va">x_label</span>,</span>
+<span>        y <span class="op">=</span> <span class="va">y_label</span>,</span>
+<span>        label <span class="op">=</span> <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Blastocyst; This study\nGender"</span><span class="op">)</span>,</span>
+<span>        family <span class="op">=</span> <span class="st">"Arial"</span>,</span>
+<span>        color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>        size <span class="op">=</span> <span class="fl">5</span> <span class="op">/</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/graphical-units.html">.pt</a></span>,</span>
+<span>        hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>        vjust <span class="op">=</span> <span class="fl">0</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    <span class="va">p_embedding_batch</span>,</span>
+<span>    <span class="va">p_embedding_assignment</span>,</span>
+<span>    <span class="va">p_embedding_gender</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span></span>
+<span>        \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>            <span class="va">x</span> <span class="op">+</span> <span class="fu">add_panel_border</span><span class="op">(</span><span class="op">)</span></span>
+<span>        <span class="op">}</span></span>
+<span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span><span class="op">(</span><span class="va">`+`</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html">plot_layout</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation</a></span><span class="op">(</span></span>
+<span>        theme <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="genotype_blastocysts_files/figure-html/unnamed-chunk-53-1.svg" style="width:62.5%;height:62.5%" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="r-session-info" class="level2"><h2 class="anchored" data-anchor-id="r-session-info">R session info</h2>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.1 (2023-06-16)
+ os       macOS Ventura 13.4.1
+ system   aarch64, darwin22.4.0
+ ui       unknown
+ language (EN)
+ collate  en_US.UTF-8
+ ctype    en_US.UTF-8
+ tz       Asia/Shanghai
+ date     2023-07-21
+ pandoc   2.19.2 @ /Users/jialei/.pyenv/shims/ (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package      * version     date (UTC) lib source
+ beeswarm       0.4.0       2021-06-01 [1] CRAN (R 4.3.0)
+ bit            4.0.5       2022-11-15 [1] CRAN (R 4.3.0)
+ bit64          4.0.5       2020-08-30 [1] CRAN (R 4.3.0)
+ cachem         1.0.8       2023-05-01 [1] CRAN (R 4.3.0)
+ callr          3.7.3       2022-11-02 [1] CRAN (R 4.3.0)
+ cli            3.6.1       2023-03-23 [1] CRAN (R 4.3.0)
+ codetools      0.2-19      2023-02-01 [2] CRAN (R 4.3.1)
+ colorspace     2.1-0       2023-01-23 [1] CRAN (R 4.3.0)
+ crayon         1.5.2       2022-09-29 [1] CRAN (R 4.3.0)
+ devtools       2.4.5.9000  2023-07-13 [1] Github (r-lib/devtools@2c642ab)
+ digest         0.6.33      2023-07-07 [1] CRAN (R 4.3.1)
+ dplyr        * 1.1.2.9000  2023-07-19 [1] Github (tidyverse/dplyr@c963d4d)
+ ellipsis       0.3.2       2021-04-29 [1] CRAN (R 4.3.0)
+ evaluate       0.21        2023-05-05 [1] CRAN (R 4.3.0)
+ extrafont    * 0.19        2023-01-18 [1] CRAN (R 4.3.0)
+ extrafontdb    1.0         2012-06-11 [1] CRAN (R 4.3.0)
+ fansi          1.0.4       2023-01-22 [1] CRAN (R 4.3.0)
+ farver         2.1.1       2022-07-06 [1] CRAN (R 4.3.0)
+ fastmap        1.1.1       2023-02-24 [1] CRAN (R 4.3.0)
+ forcats      * 1.0.0.9000  2023-04-23 [1] Github (tidyverse/forcats@4a8525a)
+ fs             1.6.2       2023-04-25 [1] CRAN (R 4.3.0)
+ furrr        * 0.3.1.9000  2023-06-11 [1] Github (DavisVaughan/furrr@aa124bc)
+ future       * 1.33.0      2023-07-01 [1] CRAN (R 4.3.1)
+ generics       0.1.3       2022-07-05 [1] CRAN (R 4.3.0)
+ ggbeeswarm     0.7.2       2023-04-29 [1] CRAN (R 4.3.0)
+ ggplot2      * 3.4.2.9000  2023-06-30 [1] Github (tidyverse/ggplot2@2a7ca74)
+ ggrastr        1.0.2       2023-06-01 [1] CRAN (R 4.3.0)
+ globals        0.16.2      2022-11-21 [1] CRAN (R 4.3.0)
+ glue           1.6.2.9000  2023-04-23 [1] Github (tidyverse/glue@cbac82a)
+ gtable         0.3.3.9000  2023-04-23 [1] Github (r-lib/gtable@c56fd4f)
+ hms            1.1.3       2023-03-21 [1] CRAN (R 4.3.0)
+ htmltools      0.5.5       2023-03-23 [1] CRAN (R 4.3.0)
+ htmlwidgets    1.6.2       2023-03-17 [1] CRAN (R 4.3.0)
+ jsonlite       1.8.7       2023-06-29 [1] CRAN (R 4.3.1)
+ knitr          1.43        2023-05-25 [1] CRAN (R 4.3.0)
+ labeling       0.4.2       2020-10-20 [1] CRAN (R 4.3.0)
+ lattice        0.21-8      2023-04-05 [2] CRAN (R 4.3.1)
+ lifecycle      1.0.3       2022-10-07 [1] CRAN (R 4.3.0)
+ listenv        0.9.0       2022-12-16 [1] CRAN (R 4.3.0)
+ lubridate    * 1.9.2.9000  2023-07-17 [1] Github (tidyverse/lubridate@11d1c9a)
+ magrittr       2.0.3       2022-03-30 [1] CRAN (R 4.3.0)
+ Matrix       * 1.6-0       2023-07-08 [2] CRAN (R 4.3.1)
+ memoise        2.0.1       2021-11-26 [1] CRAN (R 4.3.0)
+ munsell        0.5.0       2018-06-12 [1] CRAN (R 4.3.0)
+ paletteer      1.5.0       2022-10-19 [1] CRAN (R 4.3.0)
+ parallelly     1.36.0      2023-05-26 [1] CRAN (R 4.3.0)
+ patchwork    * 1.1.2.9000  2023-04-23 [1] Github (thomasp85/patchwork@c14c960)
+ pillar         1.9.0       2023-03-22 [1] CRAN (R 4.3.0)
+ pkgbuild       1.4.2       2023-06-26 [1] CRAN (R 4.3.1)
+ pkgconfig      2.0.3       2019-09-22 [1] CRAN (R 4.3.0)
+ pkgload        1.3.2.9000  2023-07-05 [1] Github (r-lib/pkgload@3cf9896)
+ png            0.1-8       2022-11-29 [1] CRAN (R 4.3.0)
+ prettyunits    1.1.1.9000  2023-04-23 [1] Github (r-lib/prettyunits@8706d89)
+ prismatic      1.1.1       2022-08-15 [1] CRAN (R 4.3.0)
+ processx       3.8.2       2023-06-30 [1] CRAN (R 4.3.1)
+ ps             1.7.5       2023-04-18 [1] CRAN (R 4.3.0)
+ purrr        * 1.0.1.9000  2023-04-23 [1] Github (tidyverse/purrr@fd5a732)
+ R.cache        0.16.0      2022-07-21 [1] CRAN (R 4.3.0)
+ R.methodsS3    1.8.2       2022-06-13 [1] CRAN (R 4.3.0)
+ R.oo           1.25.0      2022-06-12 [1] CRAN (R 4.3.0)
+ R.utils        2.12.2      2022-11-11 [1] CRAN (R 4.3.0)
+ R6             2.5.1.9000  2023-04-23 [1] Github (r-lib/R6@e97cca7)
+ RColorBrewer   1.1-3       2022-04-03 [1] CRAN (R 4.3.0)
+ Rcpp           1.0.11      2023-07-06 [1] CRAN (R 4.3.1)
+ readr        * 2.1.4.9000  2023-04-23 [1] Github (tidyverse/readr@9558d89)
+ rematch2       2.1.2       2020-05-01 [1] CRAN (R 4.3.0)
+ remotes        2.4.2.9000  2023-06-09 [1] Github (r-lib/remotes@8875171)
+ reticulate     1.30        2023-06-09 [1] CRAN (R 4.3.0)
+ rlang          1.1.1.9000  2023-06-09 [1] Github (r-lib/rlang@c55f602)
+ rmarkdown      2.23.3      2023-07-12 [1] Github (rstudio/rmarkdown@1d739bd)
+ rstudioapi     0.15.0.9000 2023-07-19 [1] Github (rstudio/rstudioapi@feceaef)
+ Rttf2pt1       1.3.12      2023-01-22 [1] CRAN (R 4.3.0)
+ scales         1.2.1       2022-08-20 [1] CRAN (R 4.3.0)
+ sessioninfo    1.2.2       2021-12-06 [1] CRAN (R 4.3.0)
+ stringi        1.7.12      2023-01-11 [1] CRAN (R 4.3.0)
+ stringr      * 1.5.0.9000  2023-04-23 [1] Github (tidyverse/stringr@65b218e)
+ styler       * 1.10.1      2023-07-17 [1] Github (r-lib/styler@aca7223)
+ tibble       * 3.2.1.9005  2023-05-28 [1] Github (tidyverse/tibble@4de5c15)
+ tidyr        * 1.3.0.9000  2023-04-23 [1] Github (tidyverse/tidyr@0764e65)
+ tidyselect     1.2.0       2022-10-10 [1] CRAN (R 4.3.0)
+ tidyverse    * 2.0.0.9000  2023-04-23 [1] Github (tidyverse/tidyverse@8ec2e1f)
+ timechange     0.2.0       2023-01-11 [1] CRAN (R 4.3.0)
+ tzdb           0.4.0       2023-05-12 [1] CRAN (R 4.3.0)
+ usethis        2.2.2.9000  2023-07-11 [1] Github (r-lib/usethis@467ff57)
+ utf8           1.2.3       2023-01-31 [1] CRAN (R 4.3.0)
+ vctrs          0.6.3       2023-06-14 [1] CRAN (R 4.3.0)
+ vipor          0.4.5       2017-03-22 [1] CRAN (R 4.3.0)
+ vroom          1.6.3.9000  2023-04-30 [1] Github (tidyverse/vroom@89b6aac)
+ withr          2.5.0       2022-03-03 [1] CRAN (R 4.3.0)
+ xfun           0.39        2023-04-20 [1] CRAN (R 4.3.0)
+ yaml           2.3.7       2023-01-23 [1] CRAN (R 4.3.0)
+ zeallot        0.1.0.9000  2023-06-11 [1] Github (nteetor/zeallot@55167bf)
+
+ [1] /opt/homebrew/lib/R/4.3/site-library
+ [2] /opt/homebrew/Cellar/r/4.3.1/lib/R/library
+
+─ Python configuration ───────────────────────────────────────────────────────
+ python:         /Users/jialei/.pyenv/shims/python
+ libpython:      /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3/lib/libpython3.10.dylib
+ pythonhome:     /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3:/Users/jialei/.pyenv/versions/mambaforge-22.9.0-3
+ version:        3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:26:08) [Clang 14.0.6 ]
+ numpy:          /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3/lib/python3.10/site-packages/numpy
+ numpy_version:  1.24.3
+ anndata:        /Users/jialei/.pyenv/versions/mambaforge-22.9.0-3/lib/python3.10/site-packages/anndata
+ 
+ NOTE: Python version was forced by RETICULATE_PYTHON
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/leafletjs\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./summarize_datasets.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Datasets</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./genotype_stromal_cells.html" class="pagination-link">
+        <span class="nav-page-text">Endometrial stromal cells</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright © 2023, Jialei Duan</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item">
+    <a class="nav-link" href="https://github.com/jlduan/blastoidverse/blob/main/LICENSE">
+<p><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> About</p>
+</a>
+  </li>  
+</ul>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jlduan/blastoidverse">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
