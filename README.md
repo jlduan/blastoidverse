@@ -20,7 +20,7 @@ To reproduce results:
 
 ## Citation
 
-Leqian Yu\#, Deirdre Logsdon\#, Carlos A. Pinzon-Arteaga\#, Jialei Duan\#, Toshihiko Ezashi\#, Yulei Wei\#, Ana Elisa Ribeiro Orsi, Seiya Oura, Lizhong Liu, Lei Wang, Kun Liu, Xiaoyun Ding, Linfeng Zhan, Junfei Zhang, Asrafun Nahar, Caitlen Stobbe, Mandy Katz-Jaffe, William B Schoolcraft, Tao Tan, Gary C. Hon\*, Ye Yuan\*, Jun Wu\*. (2023). **Large scale production of human blastoids amenable to modeling blastocyst development and maternal-fetal crosstalk.**. _Cell Stem Cell_ 30, 1246–1261.e9.<br>
+Leqian Yu\#, Deirdre Logsdon\#, Carlos A. Pinzon-Arteaga\#, Jialei Duan\#, Toshihiko Ezashi\#, Yulei Wei\#, Ana Elisa Ribeiro Orsi, Seiya Oura, Lizhong Liu, Lei Wang, Kun Liu, Xiaoyun Ding, Linfeng Zhan, Junfei Zhang, Asrafun Nahar, Caitlen Stobbe, Mandy Katz-Jaffe, William B Schoolcraft, Tao Tan, Gary C. Hon\*, Ye Yuan\*, Jun Wu\*. (2023). **Large scale production of human blastoids amenable to modeling blastocyst development and maternal-fetal crosstalk.** _Cell Stem Cell_ 30, 1246–1261.e9.<br>
 DOI: <https://doi.org/10.1016/j.stem.2023.08.002>
 
 <br>
