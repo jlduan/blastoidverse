@@ -20,7 +20,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -87,6 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -113,12 +114,13 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 <meta name="citation_title" content="Characterization of Human Blastoids">
 <meta name="citation_author" content="Jialei Duan">
-<meta name="citation_publication_date" content="2023-08-12">
-<meta name="citation_cover_date" content="2023-08-12">
+<meta name="citation_publication_date" content="2023-09-10">
+<meta name="citation_cover_date" content="2023-09-10">
 <meta name="citation_year" content="2023">
-<meta name="citation_online_date" content="2023-08-12">
+<meta name="citation_online_date" content="2023-09-10">
 <meta name="citation_fulltext_html_url" content="https://jlduan.github.io/blastoidverse//interpret_blastoids_public.html">
 <meta name="citation_language" content="en">
+<meta name="citation_firstpage" content="undefined">
 </head>
 <body class="nav-sidebar floating">
 
@@ -397,7 +399,7 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Sat Aug 12, 2023 10:55:36-05:00</p>
+      <p class="date">Sun Sep 10, 2023 03:26:47-05:00</p>
     </div>
   </div>
   
@@ -410,7 +412,7 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-08-12 10:53:26 CDT"</code></pre>
+<pre><code>[1] "2023-09-10 03:24:39 CDT"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -430,9 +432,9 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">## ── Attaching core tidyverse packages ─────────────────── tidyverse 2.0.0.9000 ──</span></span>
-<span><span class="co">## ✔ dplyr     1.1.2.9000     ✔ readr     2.1.4.9000</span></span>
+<span><span class="co">## ✔ dplyr     1.1.3          ✔ readr     2.1.4.9000</span></span>
 <span><span class="co">## ✔ forcats   1.0.0.9000     ✔ stringr   1.5.0.9000</span></span>
-<span><span class="co">## ✔ ggplot2   3.4.2.9000     ✔ tibble    3.2.1.9005</span></span>
+<span><span class="co">## ✔ ggplot2   3.4.3.9000     ✔ tibble    3.2.1.9005</span></span>
 <span><span class="co">## ✔ lubridate 1.9.2.9000     ✔ tidyr     1.3.0.9000</span></span>
 <span><span class="co">## ✔ purrr     1.0.2.9000     </span></span>
 <span><span class="co">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
@@ -763,23 +765,23 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
 <span>    <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">gt</span><span class="fu">::</span><span class="fu"><a href="https://gt.rstudio.com/reference/gt.html">gt</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="nsvdksdubc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nsvdksdubc table {
+<div id="pqzioqoksj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pqzioqoksj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nsvdksdubc thead, #nsvdksdubc tbody, #nsvdksdubc tfoot, #nsvdksdubc tr, #nsvdksdubc td, #nsvdksdubc th {
+#pqzioqoksj thead, #pqzioqoksj tbody, #pqzioqoksj tfoot, #pqzioqoksj tr, #pqzioqoksj td, #pqzioqoksj th {
   border-style: none;
 }
 
-#nsvdksdubc p {
+#pqzioqoksj p {
   margin: 0;
   padding: 0;
 }
 
-#nsvdksdubc .gt_table {
+#pqzioqoksj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -805,12 +807,12 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_caption {
+#pqzioqoksj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nsvdksdubc .gt_title {
+#pqzioqoksj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -822,7 +824,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-width: 0;
 }
 
-#nsvdksdubc .gt_subtitle {
+#pqzioqoksj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -834,7 +836,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-top-width: 0;
 }
 
-#nsvdksdubc .gt_heading {
+#pqzioqoksj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -846,13 +848,13 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_bottom_border {
+#pqzioqoksj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_col_headings {
+#pqzioqoksj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -867,7 +869,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_col_heading {
+#pqzioqoksj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -887,7 +889,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   overflow-x: hidden;
 }
 
-#nsvdksdubc .gt_column_spanner_outer {
+#pqzioqoksj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -899,15 +901,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 4px;
 }
 
-#nsvdksdubc .gt_column_spanner_outer:first-child {
+#pqzioqoksj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nsvdksdubc .gt_column_spanner_outer:last-child {
+#pqzioqoksj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nsvdksdubc .gt_column_spanner {
+#pqzioqoksj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -919,11 +921,11 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   width: 100%;
 }
 
-#nsvdksdubc .gt_spanner_row {
+#pqzioqoksj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nsvdksdubc .gt_group_heading {
+#pqzioqoksj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -949,7 +951,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   text-align: left;
 }
 
-#nsvdksdubc .gt_empty_group_heading {
+#pqzioqoksj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -964,15 +966,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   vertical-align: middle;
 }
 
-#nsvdksdubc .gt_from_md > :first-child {
+#pqzioqoksj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nsvdksdubc .gt_from_md > :last-child {
+#pqzioqoksj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nsvdksdubc .gt_row {
+#pqzioqoksj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -991,7 +993,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   overflow-x: hidden;
 }
 
-#nsvdksdubc .gt_stub {
+#pqzioqoksj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1004,7 +1006,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#nsvdksdubc .gt_stub_row_group {
+#pqzioqoksj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1018,15 +1020,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   vertical-align: top;
 }
 
-#nsvdksdubc .gt_row_group_first td {
+#pqzioqoksj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nsvdksdubc .gt_row_group_first th {
+#pqzioqoksj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nsvdksdubc .gt_summary_row {
+#pqzioqoksj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1036,16 +1038,16 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#nsvdksdubc .gt_first_summary_row {
+#pqzioqoksj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_first_summary_row.thick {
+#pqzioqoksj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nsvdksdubc .gt_last_summary_row {
+#pqzioqoksj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1055,7 +1057,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_grand_summary_row {
+#pqzioqoksj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1065,7 +1067,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#nsvdksdubc .gt_first_grand_summary_row {
+#pqzioqoksj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1075,7 +1077,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_last_grand_summary_row_top {
+#pqzioqoksj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1085,11 +1087,11 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_striped {
+#pqzioqoksj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nsvdksdubc .gt_table_body {
+#pqzioqoksj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1098,7 +1100,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_footnotes {
+#pqzioqoksj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1112,7 +1114,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_footnote {
+#pqzioqoksj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1121,7 +1123,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#nsvdksdubc .gt_sourcenotes {
+#pqzioqoksj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1135,7 +1137,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#nsvdksdubc .gt_sourcenote {
+#pqzioqoksj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1143,132 +1145,132 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#nsvdksdubc .gt_left {
+#pqzioqoksj .gt_left {
   text-align: left;
 }
 
-#nsvdksdubc .gt_center {
+#pqzioqoksj .gt_center {
   text-align: center;
 }
 
-#nsvdksdubc .gt_right {
+#pqzioqoksj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nsvdksdubc .gt_font_normal {
+#pqzioqoksj .gt_font_normal {
   font-weight: normal;
 }
 
-#nsvdksdubc .gt_font_bold {
+#pqzioqoksj .gt_font_bold {
   font-weight: bold;
 }
 
-#nsvdksdubc .gt_font_italic {
+#pqzioqoksj .gt_font_italic {
   font-style: italic;
 }
 
-#nsvdksdubc .gt_super {
+#pqzioqoksj .gt_super {
   font-size: 65%;
 }
 
-#nsvdksdubc .gt_footnote_marks {
+#pqzioqoksj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nsvdksdubc .gt_asterisk {
+#pqzioqoksj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nsvdksdubc .gt_indent_1 {
+#pqzioqoksj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nsvdksdubc .gt_indent_2 {
+#pqzioqoksj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nsvdksdubc .gt_indent_3 {
+#pqzioqoksj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nsvdksdubc .gt_indent_4 {
+#pqzioqoksj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nsvdksdubc .gt_indent_5 {
+#pqzioqoksj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead><tr class="gt_col_headings">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="batch">batch</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="num_cells">num_cells</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="meidan_umis">meidan_umis</th>
-    </tr></thead>
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="header gt_col_headings">
+<th id="batch" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">batch</th>
+<th id="num_cells" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">num_cells</th>
+<th id="meidan_umis" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">meidan_umis</th>
+</tr></thead>
 <tbody class="gt_table_body">
-<tr>
-<td headers="batch" class="gt_row gt_left">GSM3956280</td>
-<td headers="num_cells" class="gt_row gt_right">5454</td>
-<td headers="meidan_umis" class="gt_row gt_right">23322.0</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="batch">GSM3956280</td>
+<td class="gt_row gt_right" headers="num_cells">5454</td>
+<td class="gt_row gt_right" headers="meidan_umis">23322.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">GSM3956281</td>
-<td headers="num_cells" class="gt_row gt_right">4512</td>
-<td headers="meidan_umis" class="gt_row gt_right">27887.0</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="batch">GSM3956281</td>
+<td class="gt_row gt_right" headers="num_cells">4512</td>
+<td class="gt_row gt_right" headers="meidan_umis">27887.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">LW119</td>
-<td headers="num_cells" class="gt_row gt_right">2236</td>
-<td headers="meidan_umis" class="gt_row gt_right">2956.5</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="batch">LW119</td>
+<td class="gt_row gt_right" headers="num_cells">2236</td>
+<td class="gt_row gt_right" headers="meidan_umis">2956.5</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">LW120</td>
-<td headers="num_cells" class="gt_row gt_right">435</td>
-<td headers="meidan_umis" class="gt_row gt_right">17392.0</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="batch">LW120</td>
+<td class="gt_row gt_right" headers="num_cells">435</td>
+<td class="gt_row gt_right" headers="meidan_umis">17392.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">LW121</td>
-<td headers="num_cells" class="gt_row gt_right">5130</td>
-<td headers="meidan_umis" class="gt_row gt_right">12536.0</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="batch">LW121</td>
+<td class="gt_row gt_right" headers="num_cells">5130</td>
+<td class="gt_row gt_right" headers="meidan_umis">12536.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">LW122</td>
-<td headers="num_cells" class="gt_row gt_right">287</td>
-<td headers="meidan_umis" class="gt_row gt_right">100092.0</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="batch">LW122</td>
+<td class="gt_row gt_right" headers="num_cells">287</td>
+<td class="gt_row gt_right" headers="meidan_umis">100092.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">LW60</td>
-<td headers="num_cells" class="gt_row gt_right">4497</td>
-<td headers="meidan_umis" class="gt_row gt_right">14421.0</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="batch">LW60</td>
+<td class="gt_row gt_right" headers="num_cells">4497</td>
+<td class="gt_row gt_right" headers="meidan_umis">14421.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">LW61</td>
-<td headers="num_cells" class="gt_row gt_right">5156</td>
-<td headers="meidan_umis" class="gt_row gt_right">7625.0</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="batch">LW61</td>
+<td class="gt_row gt_right" headers="num_cells">5156</td>
+<td class="gt_row gt_right" headers="meidan_umis">7625.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">PRJEB11202</td>
-<td headers="num_cells" class="gt_row gt_right">1529</td>
-<td headers="meidan_umis" class="gt_row gt_right">1551093.0</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="batch">PRJEB11202</td>
+<td class="gt_row gt_right" headers="num_cells">1529</td>
+<td class="gt_row gt_right" headers="meidan_umis">1551093.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">PRJEB40781</td>
-<td headers="num_cells" class="gt_row gt_right">1195</td>
-<td headers="meidan_umis" class="gt_row gt_right">899241.0</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="batch">PRJEB40781</td>
+<td class="gt_row gt_right" headers="num_cells">1195</td>
+<td class="gt_row gt_right" headers="meidan_umis">899241.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">PRJNA562548</td>
-<td headers="num_cells" class="gt_row gt_right">555</td>
-<td headers="meidan_umis" class="gt_row gt_right">10165004.0</td>
+<tr class="odd">
+<td class="gt_row gt_left" headers="batch">PRJNA562548</td>
+<td class="gt_row gt_right" headers="num_cells">555</td>
+<td class="gt_row gt_right" headers="meidan_umis">10165004.0</td>
 </tr>
-<tr>
-<td headers="batch" class="gt_row gt_left">PRJNA720968</td>
-<td headers="num_cells" class="gt_row gt_right">495</td>
-<td headers="meidan_umis" class="gt_row gt_right">7690661.0</td>
+<tr class="even">
+<td class="gt_row gt_left" headers="batch">PRJNA720968</td>
+<td class="gt_row gt_right" headers="num_cells">495</td>
+<td class="gt_row gt_right" headers="meidan_umis">7690661.0</td>
 </tr>
 </tbody>
 </table>
@@ -1380,23 +1382,23 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
 `.groups` argument.</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="lftakayies" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lftakayies table {
+<div id="bmwgyjagsd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bmwgyjagsd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lftakayies thead, #lftakayies tbody, #lftakayies tfoot, #lftakayies tr, #lftakayies td, #lftakayies th {
+#bmwgyjagsd thead, #bmwgyjagsd tbody, #bmwgyjagsd tfoot, #bmwgyjagsd tr, #bmwgyjagsd td, #bmwgyjagsd th {
   border-style: none;
 }
 
-#lftakayies p {
+#bmwgyjagsd p {
   margin: 0;
   padding: 0;
 }
 
-#lftakayies .gt_table {
+#bmwgyjagsd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1422,12 +1424,12 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-left-color: #D3D3D3;
 }
 
-#lftakayies .gt_caption {
+#bmwgyjagsd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lftakayies .gt_title {
+#bmwgyjagsd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1439,7 +1441,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-width: 0;
 }
 
-#lftakayies .gt_subtitle {
+#bmwgyjagsd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1451,7 +1453,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-top-width: 0;
 }
 
-#lftakayies .gt_heading {
+#bmwgyjagsd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1463,13 +1465,13 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lftakayies .gt_bottom_border {
+#bmwgyjagsd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lftakayies .gt_col_headings {
+#bmwgyjagsd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1484,7 +1486,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lftakayies .gt_col_heading {
+#bmwgyjagsd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1504,7 +1506,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   overflow-x: hidden;
 }
 
-#lftakayies .gt_column_spanner_outer {
+#bmwgyjagsd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1516,15 +1518,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 4px;
 }
 
-#lftakayies .gt_column_spanner_outer:first-child {
+#bmwgyjagsd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lftakayies .gt_column_spanner_outer:last-child {
+#bmwgyjagsd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lftakayies .gt_column_spanner {
+#bmwgyjagsd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1536,11 +1538,11 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   width: 100%;
 }
 
-#lftakayies .gt_spanner_row {
+#bmwgyjagsd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lftakayies .gt_group_heading {
+#bmwgyjagsd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1566,7 +1568,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   text-align: left;
 }
 
-#lftakayies .gt_empty_group_heading {
+#bmwgyjagsd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1581,15 +1583,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   vertical-align: middle;
 }
 
-#lftakayies .gt_from_md > :first-child {
+#bmwgyjagsd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lftakayies .gt_from_md > :last-child {
+#bmwgyjagsd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lftakayies .gt_row {
+#bmwgyjagsd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1608,7 +1610,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   overflow-x: hidden;
 }
 
-#lftakayies .gt_stub {
+#bmwgyjagsd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1621,7 +1623,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#lftakayies .gt_stub_row_group {
+#bmwgyjagsd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1635,15 +1637,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   vertical-align: top;
 }
 
-#lftakayies .gt_row_group_first td {
+#bmwgyjagsd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lftakayies .gt_row_group_first th {
+#bmwgyjagsd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lftakayies .gt_summary_row {
+#bmwgyjagsd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1653,16 +1655,16 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#lftakayies .gt_first_summary_row {
+#bmwgyjagsd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lftakayies .gt_first_summary_row.thick {
+#bmwgyjagsd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lftakayies .gt_last_summary_row {
+#bmwgyjagsd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1672,7 +1674,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lftakayies .gt_grand_summary_row {
+#bmwgyjagsd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1682,7 +1684,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#lftakayies .gt_first_grand_summary_row {
+#bmwgyjagsd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1692,7 +1694,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-top-color: #D3D3D3;
 }
 
-#lftakayies .gt_last_grand_summary_row_top {
+#bmwgyjagsd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1702,11 +1704,11 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lftakayies .gt_striped {
+#bmwgyjagsd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lftakayies .gt_table_body {
+#bmwgyjagsd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1715,7 +1717,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-bottom-color: #D3D3D3;
 }
 
-#lftakayies .gt_footnotes {
+#bmwgyjagsd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1729,7 +1731,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lftakayies .gt_footnote {
+#bmwgyjagsd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1738,7 +1740,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#lftakayies .gt_sourcenotes {
+#bmwgyjagsd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1752,7 +1754,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   border-right-color: #D3D3D3;
 }
 
-#lftakayies .gt_sourcenote {
+#bmwgyjagsd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1760,172 +1762,172 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
   padding-right: 5px;
 }
 
-#lftakayies .gt_left {
+#bmwgyjagsd .gt_left {
   text-align: left;
 }
 
-#lftakayies .gt_center {
+#bmwgyjagsd .gt_center {
   text-align: center;
 }
 
-#lftakayies .gt_right {
+#bmwgyjagsd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lftakayies .gt_font_normal {
+#bmwgyjagsd .gt_font_normal {
   font-weight: normal;
 }
 
-#lftakayies .gt_font_bold {
+#bmwgyjagsd .gt_font_bold {
   font-weight: bold;
 }
 
-#lftakayies .gt_font_italic {
+#bmwgyjagsd .gt_font_italic {
   font-style: italic;
 }
 
-#lftakayies .gt_super {
+#bmwgyjagsd .gt_super {
   font-size: 65%;
 }
 
-#lftakayies .gt_footnote_marks {
+#bmwgyjagsd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lftakayies .gt_asterisk {
+#bmwgyjagsd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lftakayies .gt_indent_1 {
+#bmwgyjagsd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lftakayies .gt_indent_2 {
+#bmwgyjagsd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lftakayies .gt_indent_3 {
+#bmwgyjagsd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lftakayies .gt_indent_4 {
+#bmwgyjagsd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lftakayies .gt_indent_5 {
+#bmwgyjagsd .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-<thead><tr class="gt_col_headings">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="batch">batch</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="num_cells">num_cells</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="median_umis">median_umis</th>
-    </tr></thead>
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="batch" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">batch</th>
+<th id="num_cells" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">num_cells</th>
+<th id="median_umis" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">median_umis</th>
+</tr></thead>
 <tbody class="gt_table_body">
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="This study">This study</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="This study stub_1_1 batch" class="gt_row gt_left">LW119</td>
-<td headers="This study stub_1_1 num_cells" class="gt_row gt_right">2,236</td>
-<td headers="This study stub_1_1 median_umis" class="gt_row gt_right" style="background-color: #00FF00; color: #000000;">2,956.5</td>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="This study" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">This study</td>
 </tr>
-<tr>
-<th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="This study stub_1_2 batch" class="gt_row gt_left">LW120</td>
-<td headers="This study stub_1_2 num_cells" class="gt_row gt_right">435</td>
-<td headers="This study stub_1_2 median_umis" class="gt_row gt_right" style="background-color: #09FF00; color: #000000;">17,392.0</td>
+<tr class="even gt_row_group_first">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="This study stub_1_1 batch">LW119</td>
+<td class="gt_row gt_right" headers="This study stub_1_1 num_cells">2,236</td>
+<td class="gt_row gt_right" headers="This study stub_1_1 median_umis" style="background-color: #00FF00; color: #000000">2,956.5</td>
 </tr>
-<tr>
-<th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="This study stub_1_3 batch" class="gt_row gt_left">LW121</td>
-<td headers="This study stub_1_3 num_cells" class="gt_row gt_right">5,130</td>
-<td headers="This study stub_1_3 median_umis" class="gt_row gt_right" style="background-color: #06FF00; color: #000000;">12,536.0</td>
+<tr class="odd">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="This study stub_1_2 batch">LW120</td>
+<td class="gt_row gt_right" headers="This study stub_1_2 num_cells">435</td>
+<td class="gt_row gt_right" headers="This study stub_1_2 median_umis" style="background-color: #09FF00; color: #000000">17,392.0</td>
 </tr>
-<tr>
-<th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="This study stub_1_4 batch" class="gt_row gt_left">LW122</td>
-<td headers="This study stub_1_4 num_cells" class="gt_row gt_right">287</td>
-<td headers="This study stub_1_4 median_umis" class="gt_row gt_right" style="background-color: #25FE00; color: #000000;">100,092.0</td>
+<tr class="even">
+<td id="stub_1_3" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="This study stub_1_3 batch">LW121</td>
+<td class="gt_row gt_right" headers="This study stub_1_3 num_cells">5,130</td>
+<td class="gt_row gt_right" headers="This study stub_1_3 median_umis" style="background-color: #06FF00; color: #000000">12,536.0</td>
 </tr>
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="Yu et al. 2021">Yu et al. 2021</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Yu et al. 2021 stub_1_5 batch" class="gt_row gt_left">LW60</td>
-<td headers="Yu et al. 2021 stub_1_5 num_cells" class="gt_row gt_right">4,497</td>
-<td headers="Yu et al. 2021 stub_1_5 median_umis" class="gt_row gt_right" style="background-color: #07FF00; color: #000000;">14,421.0</td>
+<tr class="odd">
+<td id="stub_1_4" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="This study stub_1_4 batch">LW122</td>
+<td class="gt_row gt_right" headers="This study stub_1_4 num_cells">287</td>
+<td class="gt_row gt_right" headers="This study stub_1_4 median_umis" style="background-color: #25FE00; color: #000000">100,092.0</td>
 </tr>
-<tr>
-<th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Yu et al. 2021 stub_1_6 batch" class="gt_row gt_left">LW61</td>
-<td headers="Yu et al. 2021 stub_1_6 num_cells" class="gt_row gt_right">5,156</td>
-<td headers="Yu et al. 2021 stub_1_6 median_umis" class="gt_row gt_right" style="background-color: #03FF00; color: #000000;">7,625.0</td>
+<tr class="even gt_group_heading_row">
+<td colspan="4" id="Yu et al. 2021" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Yu et al. 2021</td>
 </tr>
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="Yanagida et al. 2021">Yanagida et al. 2021</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Yanagida et al. 2021 stub_1_7 batch" class="gt_row gt_left">PRJNA720968</td>
-<td headers="Yanagida et al. 2021 stub_1_7 num_cells" class="gt_row gt_right">495</td>
-<td headers="Yanagida et al. 2021 stub_1_7 median_umis" class="gt_row gt_right" style="background-color: #FF6D00; color: #FFFFFF;">7,690,661.0</td>
+<tr class="odd gt_row_group_first">
+<td id="stub_1_5" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Yu et al. 2021 stub_1_5 batch">LW60</td>
+<td class="gt_row gt_right" headers="Yu et al. 2021 stub_1_5 num_cells">4,497</td>
+<td class="gt_row gt_right" headers="Yu et al. 2021 stub_1_5 median_umis" style="background-color: #07FF00; color: #000000">14,421.0</td>
 </tr>
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="Petropoulos et al. 2016">Petropoulos et al. 2016</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Petropoulos et al. 2016 stub_1_8 batch" class="gt_row gt_left">PRJEB11202</td>
-<td headers="Petropoulos et al. 2016 stub_1_8 num_cells" class="gt_row gt_right">1,529</td>
-<td headers="Petropoulos et al. 2016 stub_1_8 median_umis" class="gt_row gt_right" style="background-color: #94E700; color: #000000;">1,551,093.0</td>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Yu et al. 2021 stub_1_6 batch">LW61</td>
+<td class="gt_row gt_right" headers="Yu et al. 2021 stub_1_6 num_cells">5,156</td>
+<td class="gt_row gt_right" headers="Yu et al. 2021 stub_1_6 median_umis" style="background-color: #03FF00; color: #000000">7,625.0</td>
 </tr>
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="Xiang et al. 2020">Xiang et al. 2020</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Xiang et al. 2020 stub_1_9 batch" class="gt_row gt_left">PRJNA562548</td>
-<td headers="Xiang et al. 2020 stub_1_9 num_cells" class="gt_row gt_right">555</td>
-<td headers="Xiang et al. 2020 stub_1_9 median_umis" class="gt_row gt_right" style="background-color: #FF0000; color: #FFFFFF;">10,165,004.0</td>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="Yanagida et al. 2021" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Yanagida et al. 2021</td>
 </tr>
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="Tyser et al. 2021">Tyser et al. 2021</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Tyser et al. 2021 stub_1_10 batch" class="gt_row gt_left">PRJEB40781</td>
-<td headers="Tyser et al. 2021 stub_1_10 num_cells" class="gt_row gt_right">1,195</td>
-<td headers="Tyser et al. 2021 stub_1_10 median_umis" class="gt_row gt_right" style="background-color: #73F200; color: #000000;">899,241.0</td>
+<tr class="even gt_row_group_first">
+<td id="stub_1_7" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Yanagida et al. 2021 stub_1_7 batch">PRJNA720968</td>
+<td class="gt_row gt_right" headers="Yanagida et al. 2021 stub_1_7 num_cells">495</td>
+<td class="gt_row gt_right" headers="Yanagida et al. 2021 stub_1_7 median_umis" style="background-color: #FF6D00; color: #FFFFFF">7,690,661.0</td>
 </tr>
-<tr class="gt_group_heading_row">
-<th colspan="4" class="gt_group_heading" scope="colgroup" id="Zheng et al. 2019">Zheng et al. 2019</th>
-    </tr>
-<tr class="gt_row_group_first">
-<th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Zheng et al. 2019 stub_1_11 batch" class="gt_row gt_left">GSM3956280</td>
-<td headers="Zheng et al. 2019 stub_1_11 num_cells" class="gt_row gt_right">5,454</td>
-<td headers="Zheng et al. 2019 stub_1_11 median_umis" class="gt_row gt_right" style="background-color: #0DFF00; color: #000000;">23,322.0</td>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="Petropoulos et al. 2016" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Petropoulos et al. 2016</td>
 </tr>
-<tr>
-<th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub"></th>
-<td headers="Zheng et al. 2019 stub_1_12 batch" class="gt_row gt_left">GSM3956281</td>
-<td headers="Zheng et al. 2019 stub_1_12 num_cells" class="gt_row gt_right">4,512</td>
-<td headers="Zheng et al. 2019 stub_1_12 median_umis" class="gt_row gt_right" style="background-color: #0FFF00; color: #000000;">27,887.0</td>
+<tr class="even gt_row_group_first">
+<td id="stub_1_8" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Petropoulos et al. 2016 stub_1_8 batch">PRJEB11202</td>
+<td class="gt_row gt_right" headers="Petropoulos et al. 2016 stub_1_8 num_cells">1,529</td>
+<td class="gt_row gt_right" headers="Petropoulos et al. 2016 stub_1_8 median_umis" style="background-color: #94E700; color: #000000">1,551,093.0</td>
 </tr>
-<tr>
-<th id="grand_summary_stub_1" scope="row" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">Sum</th>
-<td headers="grand_summary_stub_1 batch" class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">—</td>
-<td headers="grand_summary_stub_1 num_cells" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">31,481</td>
-<td headers="grand_summary_stub_1 median_umis" class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row">—</td>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="Xiang et al. 2020" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Xiang et al. 2020</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td id="stub_1_9" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Xiang et al. 2020 stub_1_9 batch">PRJNA562548</td>
+<td class="gt_row gt_right" headers="Xiang et al. 2020 stub_1_9 num_cells">555</td>
+<td class="gt_row gt_right" headers="Xiang et al. 2020 stub_1_9 median_umis" style="background-color: #FF0000; color: #FFFFFF">10,165,004.0</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="Tyser et al. 2021" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Tyser et al. 2021</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td id="stub_1_10" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Tyser et al. 2021 stub_1_10 batch">PRJEB40781</td>
+<td class="gt_row gt_right" headers="Tyser et al. 2021 stub_1_10 num_cells">1,195</td>
+<td class="gt_row gt_right" headers="Tyser et al. 2021 stub_1_10 median_umis" style="background-color: #73F200; color: #000000">899,241.0</td>
+</tr>
+<tr class="odd gt_group_heading_row">
+<td colspan="4" id="Zheng et al. 2019" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">Zheng et al. 2019</td>
+</tr>
+<tr class="even gt_row_group_first">
+<td id="stub_1_11" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Zheng et al. 2019 stub_1_11 batch">GSM3956280</td>
+<td class="gt_row gt_right" headers="Zheng et al. 2019 stub_1_11 num_cells">5,454</td>
+<td class="gt_row gt_right" headers="Zheng et al. 2019 stub_1_11 median_umis" style="background-color: #0DFF00; color: #000000">23,322.0</td>
+</tr>
+<tr class="odd">
+<td id="stub_1_12" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="Zheng et al. 2019 stub_1_12 batch">GSM3956281</td>
+<td class="gt_row gt_right" headers="Zheng et al. 2019 stub_1_12 num_cells">4,512</td>
+<td class="gt_row gt_right" headers="Zheng et al. 2019 stub_1_12 median_umis" style="background-color: #0FFF00; color: #000000">27,887.0</td>
+</tr>
+<tr class="even">
+<td id="grand_summary_stub_1" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" data-quarto-table-cell-role="th" scope="row">Sum</td>
+<td class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 batch">—</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 num_cells">31,481</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 median_umis">—</td>
 </tr>
 </tbody>
 </table>
@@ -4312,14 +4314,14 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.3.1 (2023-06-16)
- os       macOS Ventura 13.5
+ os       macOS Ventura 13.5.2
  system   aarch64, darwin22.4.0
  ui       unknown
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       America/Chicago
- date     2023-08-12
+ date     2023-09-10
  pandoc   2.19.2 @ /Users/jialei/.pyenv/shims/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -4335,7 +4337,7 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
  crayon        1.5.2       2022-09-29 [1] CRAN (R 4.3.0)
  devtools      2.4.5.9000  2023-08-11 [1] Github (r-lib/devtools@163c3f2)
  digest        0.6.33      2023-07-07 [1] CRAN (R 4.3.1)
- dplyr       * 1.1.2.9000  2023-07-19 [1] Github (tidyverse/dplyr@c963d4d)
+ dplyr       * 1.1.3       2023-09-03 [1] CRAN (R 4.3.1)
  ellipsis      0.3.2       2021-04-29 [1] CRAN (R 4.3.0)
  evaluate      0.21        2023-05-05 [1] CRAN (R 4.3.0)
  extrafont   * 0.19        2023-01-18 [1] CRAN (R 4.3.0)
@@ -4347,28 +4349,28 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
  fs            1.6.3       2023-07-20 [1] CRAN (R 4.3.1)
  generics      0.1.3       2022-07-05 [1] CRAN (R 4.3.0)
  ggbeeswarm    0.7.2       2023-04-29 [1] CRAN (R 4.3.0)
- ggplot2     * 3.4.2.9000  2023-08-11 [1] Github (tidyverse/ggplot2@2cd0e96)
+ ggplot2     * 3.4.3.9000  2023-09-05 [1] Github (tidyverse/ggplot2@d180248)
  ggrastr       1.0.2       2023-06-01 [1] CRAN (R 4.3.0)
  ggtext        0.1.2       2022-09-16 [1] CRAN (R 4.3.0)
  glue          1.6.2.9000  2023-04-23 [1] Github (tidyverse/glue@cbac82a)
  gridtext      0.1.5       2022-09-16 [1] CRAN (R 4.3.0)
- gt            0.9.0.9000  2023-08-11 [1] Github (rstudio/gt@a3cc005)
- gtable        0.3.3.9000  2023-04-23 [1] Github (r-lib/gtable@c56fd4f)
+ gt            0.9.0.9000  2023-09-02 [1] Github (rstudio/gt@c73eece)
+ gtable        0.3.4.9000  2023-08-22 [1] Github (r-lib/gtable@c410a54)
  hms           1.1.3       2023-03-21 [1] CRAN (R 4.3.0)
  htmltools     0.5.6       2023-08-10 [1] CRAN (R 4.3.1)
  htmlwidgets   1.6.2       2023-03-17 [1] CRAN (R 4.3.0)
  jsonlite      1.8.7       2023-06-29 [1] CRAN (R 4.3.1)
  knitr         1.43        2023-05-25 [1] CRAN (R 4.3.0)
- labeling      0.4.2       2020-10-20 [1] CRAN (R 4.3.0)
+ labeling      0.4.3       2023-08-29 [1] CRAN (R 4.3.1)
  lattice       0.21-8      2023-04-05 [2] CRAN (R 4.3.1)
  lifecycle     1.0.3       2022-10-07 [1] CRAN (R 4.3.0)
  lubridate   * 1.9.2.9000  2023-07-22 [1] Github (tidyverse/lubridate@cae67ea)
  magrittr      2.0.3       2022-03-30 [1] CRAN (R 4.3.0)
- markdown      1.7         2023-05-16 [1] CRAN (R 4.3.0)
- Matrix      * 1.6-0       2023-07-08 [2] CRAN (R 4.3.1)
+ markdown      1.8         2023-08-23 [1] CRAN (R 4.3.1)
+ Matrix      * 1.6-1       2023-08-14 [2] CRAN (R 4.3.1)
  memoise       2.0.1       2021-11-26 [1] CRAN (R 4.3.0)
  munsell       0.5.0       2018-06-12 [1] CRAN (R 4.3.0)
- patchwork   * 1.1.2.9000  2023-08-11 [1] Github (thomasp85/patchwork@bd57553)
+ patchwork   * 1.1.3.9000  2023-08-17 [1] Github (thomasp85/patchwork@51a6eff)
  pillar        1.9.0       2023-03-22 [1] CRAN (R 4.3.0)
  pkgbuild      1.4.2       2023-06-26 [1] CRAN (R 4.3.1)
  pkgconfig     2.0.3       2019-09-22 [1] CRAN (R 4.3.0)
@@ -4389,15 +4391,15 @@ NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
  remotes       2.4.2.9000  2023-06-09 [1] Github (r-lib/remotes@8875171)
  reticulate    1.31        2023-08-10 [1] CRAN (R 4.3.1)
  rlang         1.1.1.9000  2023-06-09 [1] Github (r-lib/rlang@c55f602)
- rmarkdown     2.23.4      2023-07-27 [1] Github (rstudio/rmarkdown@054d735)
- rstudioapi    0.15.0.9000 2023-07-19 [1] Github (rstudio/rstudioapi@feceaef)
+ rmarkdown     2.24.2      2023-09-07 [1] Github (rstudio/rmarkdown@8d2d9b8)
+ rstudioapi    0.15.0.9000 2023-09-07 [1] Github (rstudio/rstudioapi@19c80c0)
  Rttf2pt1      1.3.12      2023-01-22 [1] CRAN (R 4.3.0)
  sass          0.4.7       2023-07-15 [1] CRAN (R 4.3.1)
  scales        1.2.1       2022-08-20 [1] CRAN (R 4.3.0)
  sessioninfo   1.2.2       2021-12-06 [1] CRAN (R 4.3.0)
  stringi       1.7.12      2023-01-11 [1] CRAN (R 4.3.0)
  stringr     * 1.5.0.9000  2023-08-11 [1] Github (tidyverse/stringr@08ff36f)
- styler      * 1.10.1      2023-07-17 [1] Github (r-lib/styler@aca7223)
+ styler      * 1.10.2      2023-08-30 [1] Github (r-lib/styler@1976817)
  systemfonts   1.0.4       2022-02-11 [1] CRAN (R 4.3.0)
  textshaping   0.3.6       2021-10-13 [1] CRAN (R 4.3.0)
  tibble      * 3.2.1.9005  2023-05-28 [1] Github (tidyverse/tibble@4de5c15)

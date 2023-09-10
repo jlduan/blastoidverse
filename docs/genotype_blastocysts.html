@@ -20,7 +20,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -87,6 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -113,12 +114,13 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 <meta name="citation_title" content="Genotyping of Human Blastocysts">
 <meta name="citation_author" content="Jialei Duan">
-<meta name="citation_publication_date" content="2023-08-12">
-<meta name="citation_cover_date" content="2023-08-12">
+<meta name="citation_publication_date" content="2023-09-10">
+<meta name="citation_cover_date" content="2023-09-10">
 <meta name="citation_year" content="2023">
-<meta name="citation_online_date" content="2023-08-12">
+<meta name="citation_online_date" content="2023-09-10">
 <meta name="citation_fulltext_html_url" content="https://jlduan.github.io/blastoidverse//genotype_blastocysts.html">
 <meta name="citation_language" content="en">
+<meta name="citation_firstpage" content="undefined">
 </head>
 <body class="nav-sidebar floating">
 
@@ -341,7 +343,7 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Sat Aug 12, 2023 11:00:32-05:00</p>
+      <p class="date">Sun Sep 10, 2023 03:31:22-05:00</p>
     </div>
   </div>
   
@@ -354,7 +356,7 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2023-08-12 10:59:43 CDT"</code></pre>
+<pre><code>[1] "2023-09-10 03:30:35 CDT"</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -372,9 +374,9 @@ gtag('config', 'G-8W87R5EZ9F', { 'anonymize_ip': true});
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">## ── Attaching core tidyverse packages ─────────────────── tidyverse 2.0.0.9000 ──</span></span>
-<span><span class="co">## ✔ dplyr     1.1.2.9000     ✔ readr     2.1.4.9000</span></span>
+<span><span class="co">## ✔ dplyr     1.1.3          ✔ readr     2.1.4.9000</span></span>
 <span><span class="co">## ✔ forcats   1.0.0.9000     ✔ stringr   1.5.0.9000</span></span>
-<span><span class="co">## ✔ ggplot2   3.4.2.9000     ✔ tibble    3.2.1.9005</span></span>
+<span><span class="co">## ✔ ggplot2   3.4.3.9000     ✔ tibble    3.2.1.9005</span></span>
 <span><span class="co">## ✔ lubridate 1.9.2.9000     ✔ tidyr     1.3.0.9000</span></span>
 <span><span class="co">## ✔ purrr     1.0.2.9000     </span></span>
 <span><span class="co">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
@@ -1356,19 +1358,19 @@ ENSG00000239906
 </div>
 </section></section><section id="r-session-info" class="level2"><h2 class="anchored" data-anchor-id="r-session-info">R session info</h2>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.3.1 (2023-06-16)
- os       macOS Ventura 13.5
+ os       macOS Ventura 13.5.2
  system   aarch64, darwin22.4.0
  ui       unknown
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       America/Chicago
- date     2023-08-12
+ date     2023-09-10
  pandoc   2.19.2 @ /Users/jialei/.pyenv/shims/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -1384,7 +1386,7 @@ ENSG00000239906
  crayon         1.5.2       2022-09-29 [1] CRAN (R 4.3.0)
  devtools       2.4.5.9000  2023-08-11 [1] Github (r-lib/devtools@163c3f2)
  digest         0.6.33      2023-07-07 [1] CRAN (R 4.3.1)
- dplyr        * 1.1.2.9000  2023-07-19 [1] Github (tidyverse/dplyr@c963d4d)
+ dplyr        * 1.1.3       2023-09-03 [1] CRAN (R 4.3.1)
  ellipsis       0.3.2       2021-04-29 [1] CRAN (R 4.3.0)
  evaluate       0.21        2023-05-05 [1] CRAN (R 4.3.0)
  extrafont    * 0.19        2023-01-18 [1] CRAN (R 4.3.0)
@@ -1398,28 +1400,28 @@ ENSG00000239906
  future       * 1.33.0      2023-07-01 [1] CRAN (R 4.3.1)
  generics       0.1.3       2022-07-05 [1] CRAN (R 4.3.0)
  ggbeeswarm     0.7.2       2023-04-29 [1] CRAN (R 4.3.0)
- ggplot2      * 3.4.2.9000  2023-08-11 [1] Github (tidyverse/ggplot2@2cd0e96)
+ ggplot2      * 3.4.3.9000  2023-09-05 [1] Github (tidyverse/ggplot2@d180248)
  ggrastr        1.0.2       2023-06-01 [1] CRAN (R 4.3.0)
  globals        0.16.2      2022-11-21 [1] CRAN (R 4.3.0)
  glue           1.6.2.9000  2023-04-23 [1] Github (tidyverse/glue@cbac82a)
- gtable         0.3.3.9000  2023-04-23 [1] Github (r-lib/gtable@c56fd4f)
+ gtable         0.3.4.9000  2023-08-22 [1] Github (r-lib/gtable@c410a54)
  hms            1.1.3       2023-03-21 [1] CRAN (R 4.3.0)
  htmltools      0.5.6       2023-08-10 [1] CRAN (R 4.3.1)
  htmlwidgets    1.6.2       2023-03-17 [1] CRAN (R 4.3.0)
  jsonlite       1.8.7       2023-06-29 [1] CRAN (R 4.3.1)
  knitr          1.43        2023-05-25 [1] CRAN (R 4.3.0)
- labeling       0.4.2       2020-10-20 [1] CRAN (R 4.3.0)
+ labeling       0.4.3       2023-08-29 [1] CRAN (R 4.3.1)
  lattice        0.21-8      2023-04-05 [2] CRAN (R 4.3.1)
  lifecycle      1.0.3       2022-10-07 [1] CRAN (R 4.3.0)
  listenv        0.9.0       2022-12-16 [1] CRAN (R 4.3.0)
  lubridate    * 1.9.2.9000  2023-07-22 [1] Github (tidyverse/lubridate@cae67ea)
  magrittr       2.0.3       2022-03-30 [1] CRAN (R 4.3.0)
- Matrix       * 1.6-0       2023-07-08 [2] CRAN (R 4.3.1)
+ Matrix       * 1.6-1       2023-08-14 [2] CRAN (R 4.3.1)
  memoise        2.0.1       2021-11-26 [1] CRAN (R 4.3.0)
  munsell        0.5.0       2018-06-12 [1] CRAN (R 4.3.0)
  paletteer      1.5.0       2022-10-19 [1] CRAN (R 4.3.0)
  parallelly     1.36.0      2023-05-26 [1] CRAN (R 4.3.0)
- patchwork    * 1.1.2.9000  2023-08-11 [1] Github (thomasp85/patchwork@bd57553)
+ patchwork    * 1.1.3.9000  2023-08-17 [1] Github (thomasp85/patchwork@51a6eff)
  pillar         1.9.0       2023-03-22 [1] CRAN (R 4.3.0)
  pkgbuild       1.4.2       2023-06-26 [1] CRAN (R 4.3.1)
  pkgconfig      2.0.3       2019-09-22 [1] CRAN (R 4.3.0)
@@ -1442,14 +1444,14 @@ ENSG00000239906
  remotes        2.4.2.9000  2023-06-09 [1] Github (r-lib/remotes@8875171)
  reticulate     1.31        2023-08-10 [1] CRAN (R 4.3.1)
  rlang          1.1.1.9000  2023-06-09 [1] Github (r-lib/rlang@c55f602)
- rmarkdown      2.23.4      2023-07-27 [1] Github (rstudio/rmarkdown@054d735)
- rstudioapi     0.15.0.9000 2023-07-19 [1] Github (rstudio/rstudioapi@feceaef)
+ rmarkdown      2.24.2      2023-09-07 [1] Github (rstudio/rmarkdown@8d2d9b8)
+ rstudioapi     0.15.0.9000 2023-09-07 [1] Github (rstudio/rstudioapi@19c80c0)
  Rttf2pt1       1.3.12      2023-01-22 [1] CRAN (R 4.3.0)
  scales         1.2.1       2022-08-20 [1] CRAN (R 4.3.0)
  sessioninfo    1.2.2       2021-12-06 [1] CRAN (R 4.3.0)
  stringi        1.7.12      2023-01-11 [1] CRAN (R 4.3.0)
  stringr      * 1.5.0.9000  2023-08-11 [1] Github (tidyverse/stringr@08ff36f)
- styler       * 1.10.1      2023-07-17 [1] Github (r-lib/styler@aca7223)
+ styler       * 1.10.2      2023-08-30 [1] Github (r-lib/styler@1976817)
  tibble       * 3.2.1.9005  2023-05-28 [1] Github (tidyverse/tibble@4de5c15)
  tidyr        * 1.3.0.9000  2023-04-23 [1] Github (tidyverse/tidyr@0764e65)
  tidyselect     1.2.0       2022-10-10 [1] CRAN (R 4.3.0)
